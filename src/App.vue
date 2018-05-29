@@ -8,13 +8,13 @@
     <!-- 顶部tabs -->
    <el-tabs v-model="activeName" @tab-click="handleClick">
     <el-tab-pane class="temp" label="CRM" name="first">
-      <iframe class="ifa" scrolling=auto src="http://an888.net/dist/#/seedlist/index" frameborder="0"></iframe>
+      <iframe v-if="ifArr.first" class="ifa" scrolling=auto src="http://an888.net/dist/#/seedlist/index" frameborder="0"></iframe>
     </el-tab-pane>
     <el-tab-pane class="temp"  label="留学" name="second">
-       <iframe class="ifa" scrolling=auto src="https://segmentfault.com/" frameborder="0"></iframe>
+       <iframe v-if="ifArr.second"   class="ifa" scrolling=auto src="https://segmentfault.com/" frameborder="0"></iframe>
     </el-tab-pane>
     <el-tab-pane class="temp"  label="移民" name="third">
-       <iframe class="ifa" scrolling=auto src="https://www.baidu.com/" frameborder="0"></iframe>
+       <iframe v-if="ifArr.third"  class="ifa" scrolling=auto src="https://www.baidu.com/" frameborder="0"></iframe>
     </el-tab-pane>
   </el-tabs>
 
@@ -30,11 +30,18 @@ export default {
   data(){
     return{
         activeName: 'first',
+        ifArr:{
+          first:true,
+          second:false,
+          third:false
+        }
     }
   },
   methods:{
       handleClick(tab, event) {
-        console.log(tab, event);
+        console.log(tab, event)
+       let flagName=tab.name
+       this.ifArr[flagName]=true
       }
   }
 }

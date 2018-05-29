@@ -8,33 +8,62 @@
     <!-- 顶部tabs -->
    <el-tabs v-model="activeName" @tab-click="handleClick">
     <el-tab-pane class="temp" label="CRM" name="first">
-      <iframe class="ifa" scrolling=auto src="http://an888.net/dist/#/seedlist/index" frameborder="0"></iframe>
     </el-tab-pane>
+
     <el-tab-pane class="temp"  label="留学" name="second">
-       <iframe class="ifa" scrolling=auto src="https://segmentfault.com/" frameborder="0"></iframe>
     </el-tab-pane>
+
     <el-tab-pane class="temp"  label="移民" name="third">
-       <iframe class="ifa" scrolling=auto src="https://www.baidu.com/" frameborder="0"></iframe>
     </el-tab-pane>
   </el-tabs>
-
-</div>
-<!-- </div> -->
-    <!-- <router-view/> -->
+    </div>
+    <!-- <keep-alive>
+      <router-view></router-view>
+    </keep-alive> -->
+    <keep-alive>
+    <component :is="currentView"></component>
+</keep-alive>
   </div>
 </template>
 
 <script>
+import crm from '@/view/allFrames/crm'//crm
+import lx from '@/view/allFrames/lx'//留学
+import ym from '@/view/allFrames/ym'//移民
+
 export default {
+
   name: 'App',
   data(){
     return{
         activeName: 'first',
+        currentView:lx
     }
+  },
+  components:{
+   crm,lx,ym
   },
   methods:{
       handleClick(tab, event) {
-        console.log(tab, event);
+        switch(tab.label)
+              {
+              case 'CRM':
+                // this.$router.push('/')
+                this.currentView=crm
+                break;
+              case '留学':
+                // this.$router.push('/lx')
+                this.currentView=lx
+
+                break;
+              case '移民':
+                // this.$router.push('/ym')
+                this.currentView=ym
+
+                break;
+              }
+        // console.log(tab, event);
+        console.log(tab.label);
       }
   }
 }
@@ -45,18 +74,15 @@ body{
   margin:0;
   padding:5px;
 }
-.ifa{
-    width:100%;
-height:100%;
-  }
+
   .el-tabs__content{
-    border: 1px solid red;
-    border-top:none;
-    position: absolute;
-    top: 62px;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    // border: 1px solid red;
+    // border-top:none;
+    // position: absolute;
+    // top: 62px;
+    // left: 0;
+    // bottom: 0;
+    // right: 0;
     // width:100%;
     // height:80%;
   }

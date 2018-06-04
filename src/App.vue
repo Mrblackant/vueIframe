@@ -2,18 +2,18 @@
   <div id="app">
 <div class="allWapper">
   <!-- logo -->
-    <div class="shinywayLogo">
-      <img src="http://an888.net/all/shinywayUnversity.png">
+    <div class="myLogo">
+      <img src="/static/mylogo.png">
     </div>
     <!-- 顶部tabs -->
    <el-tabs v-model="activeName" @tab-click="handleClick">
-    <el-tab-pane class="temp" label="CRM" name="first">
-      <iframe v-if="ifArr.first" class="ifa" scrolling=auto src="http://an888.net/dist/#/seedlist/index" frameborder="0"></iframe>
+    <el-tab-pane class="temp" label="VUE" name="first">
+      <iframe v-if="ifArr.first" class="ifa" scrolling=auto src="http://panjiachen.github.io/vue-element-admin/#/dashboard" frameborder="0"></iframe>
     </el-tab-pane>
-    <el-tab-pane class="temp"  label="留学" name="second">
+    <el-tab-pane class="temp"  label="SF" name="second">
        <iframe v-if="ifArr.second"   class="ifa" scrolling=auto src="https://segmentfault.com/" frameborder="0"></iframe>
     </el-tab-pane>
-    <el-tab-pane class="temp"  label="移民" name="third">
+    <el-tab-pane class="temp"  label="百度" name="third">
        <iframe v-if="ifArr.third"  class="ifa" scrolling=auto src="https://www.baidu.com/" frameborder="0"></iframe>
     </el-tab-pane>
   </el-tabs>
@@ -39,7 +39,6 @@ export default {
   },
   methods:{
       handleClick(tab, event) {
-        console.log(tab, event)
        let flagName=tab.name
        this.ifArr[flagName]=true
       }
@@ -84,12 +83,12 @@ height:100%;
       width:100%;
     height:100%;
   }
-.shinywayLogo{
+.myLogo{
       width: 200px;
     height: 53px;
     margin-right:35px;
 }
-.shinywayLogo img{
+.myLogo img{
   width:100%;
 }
 </style>

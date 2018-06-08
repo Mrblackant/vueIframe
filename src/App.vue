@@ -3,7 +3,7 @@
 <div class="allWapper">
   <!-- logo -->
     <div class="myLogo">
-      <img src="/static/mylogo.png">
+      <img src="../static/mylogo.png">
     </div>
     <!-- 顶部tabs -->
    <el-tabs v-model="activeName" @tab-click="handleClick">

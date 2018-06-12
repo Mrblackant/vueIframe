@@ -8,7 +8,7 @@
     <!-- 顶部tabs -->
    <el-tabs v-model="activeName" @tab-click="handleClick">
     <el-tab-pane class="temp" label="VUE" name="first">
-      <iframe v-if="ifArr.first" class="ifa" scrolling=auto src="http://panjiachen.github.io/vue-element-admin/#/dashboard" frameborder="0"></iframe>
+      <iframe v-if="ifArr.first" class="ifa" scrolling=auto src="http://an888.net/dist/#/seedlist/index" frameborder="0"></iframe>
     </el-tab-pane>
     <el-tab-pane class="temp"  label="SF" name="second">
        <iframe v-if="ifArr.second"   class="ifa" scrolling=auto src="https://segmentfault.com/" frameborder="0"></iframe>

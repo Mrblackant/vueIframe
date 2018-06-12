@@ -6,7 +6,7 @@
       <img src="../static/mylogo.png">
     </div>
     <!-- 顶部tabs -->
-   <el-tabs v-model="activeName" @tab-click="handleClick">
+   <!-- <el-tabs v-model="activeName" @tab-click="handleClick">
     <el-tab-pane class="temp" label="VUE" name="first">
       <iframe v-if="ifArr.first" class="ifa" scrolling=auto src="http://an888.net/dist/#/seedlist/index" frameborder="0"></iframe>
     </el-tab-pane>
@@ -17,7 +17,7 @@
        <iframe v-if="ifArr.third"  class="ifa" scrolling=auto src="https://www.baidu.com/" frameborder="0"></iframe>
     </el-tab-pane>
   </el-tabs>
-
+ -->
 </div>
 <!-- </div> -->
     <!-- <router-view/> -->
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+// import { login, logout, getInfo } from '@/api/login'
 export default {
   name: 'App',
   data(){

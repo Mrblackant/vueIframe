@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import router from './router'
 import ElementUI from 'element-ui';
+import '@/permission' // permission control
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue';
 

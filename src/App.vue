@@ -1,70 +1,22 @@
 <template>
   <div id="app">
-<div class="allWapper">
-  <!-- logo -->
-    <div class="shinywayLogo">
-      <img src="http://an888.net/all/shinywayUnversity.png">
-    </div>
-    <!-- 顶部tabs -->
-   <el-tabs v-model="activeName" @tab-click="handleClick">
-    <el-tab-pane class="temp" label="CRM" name="first">
-    </el-tab-pane>
-
-    <el-tab-pane class="temp"  label="留学" name="second">
-    </el-tab-pane>
-
-    <el-tab-pane class="temp"  label="移民" name="third">
-    </el-tab-pane>
-  </el-tabs>
-    </div>
-    <!-- <keep-alive>
-      <router-view></router-view>
-    </keep-alive> -->
-    <keep-alive>
-    <component :is="currentView"></component>
-</keep-alive>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import crm from '@/view/allFrames/crm'//crm
-import lx from '@/view/allFrames/lx'//留学
-import ym from '@/view/allFrames/ym'//移民
+
 
 export default {
 
   name: 'App',
   data(){
     return{
-        activeName: 'first',
-        currentView:lx
     }
   },
   components:{
-   crm,lx,ym
   },
   methods:{
-      handleClick(tab, event) {
-        switch(tab.label)
-              {
-              case 'CRM':
-                // this.$router.push('/')
-                this.currentView=crm
-                break;
-              case '留学':
-                // this.$router.push('/lx')
-                this.currentView=lx
-
-                break;
-              case '移民':
-                // this.$router.push('/ym')
-                this.currentView=ym
-
-                break;
-              }
-        // console.log(tab, event);
-        console.log(tab.label);
-      }
   }
 }
 </script>

@@ -15,8 +15,6 @@ import {constantRouterMap} from '@/router'
 export default {
   name: 'kk',
   mounted(){
-// console.log(constantRouterMap)
-// document.write(constantRouterMap)
   },
   data () {
     return {

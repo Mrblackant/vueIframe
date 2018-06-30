@@ -14,7 +14,7 @@ import router from 'vue-router'
 export default {
   name: 'HelloWorld',
   mounted(){
-      localStorage.setItem('new',JSON.stringify({'path':'/secondRouter','component':'kk'}))
+      localStorage.setItem('new',JSON.stringify({'path':'/secondRouter','component':'kk'}))//保存路由
   },
   data () {
     return {

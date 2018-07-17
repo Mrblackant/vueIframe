@@ -1,38 +1,27 @@
 <template>
   <div>
-    点击新增 动态路由: "secondRouter"
-    <br/>
-    <el-button @click="srouter" type="primary">新增动态路由</el-button>
-
+    省市联动
+   <el-cascader
+  :options="options"
+  @change="handleChange"
+  change-on-select
+></el-cascader>
   </div>
 </template>
-
 <script>
-import router from 'vue-router'
-import {constantRouterMap} from '@/router'
-
-
-export default {
-  name: 'kk',
-  mounted(){
-  },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  export default {
+    data() {
+      return {
+      
+      };
+    },
+    methods:{
+       handleChange(value) {
+        console.log(value);
+      }
     }
-  },
-  methods:{
-    srouter(){
-      let newRoutes=constantRouterMap.concat([{path:'/secondRouter',
-        component :resolve => require(["@/components/kk"], resolve )
-      }])
-      this.$router.addRoutes(newRoutes)
-      this.$router.push({path:'/secondRouter'})
-    }
-  }
-}
+  };
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1, h2 {

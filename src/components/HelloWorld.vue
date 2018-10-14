@@ -1,52 +1,242 @@
 <template>
-  <div>
-    点击新增 动态路由: "secondRouter"
+  <div class="wapper">
+    <template v-if="makeBox.length>0">
+      <!--  <vue-draggable-resizable class="box"  v-for="item in makeBox" >
+  <p>You can drag me around and resize me as you wish.</p>
+</vue-draggable-resizable> -->
+      <div v-for="item in makeBox" :style="{top:item.top+'px'}" class="box"></div>
+    </template>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
     <br/>
-    <el-button @click="srouter" type="primary">新增动态路由</el-button>
-
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
+    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
+    <br/>
+    <br/>
+    <br/>
   </div>
 </template>
-
 <script>
-import router from 'vue-router'
-import {constantRouterMap} from '@/router'
-
+import VueDraggableResizable from 'vue-draggable-resizable'
 
 export default {
-  name: 'kk',
-  mounted(){
-  },
-  data () {
+  data: function() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      width: 0,
+      makeBox: [],
+      // calclass: 'cancel',
+      height: 0,
+      x: 0,
+      y: 0
     }
   },
-  methods:{
-    srouter(){
-      let newRoutes=constantRouterMap.concat([{path:'/secondRouter',
-        component :resolve => require(["@/components/kk"], resolve )
-      }])
-      this.$router.addRoutes(newRoutes)
-      this.$router.push({path:'/secondRouter'})
+  methods: {
+    handleUser(event) {
+      console.log(event)
+      let c = document.body.offsetHeight
+      let b = document.body.scrollHeight
+      console.log(c);
+      console.log(b);
+      let d = event.screenY
+      let cd = c/10
+      this.makeBox.push({ top:cd})
+
+    },
+    updateXY: function(event) {
+      console.log(event.offsetX)
+      console.log(event.offsetY)
+    },
+    onResize: function(x, y, width, height) {
+      this.x = x
+      this.y = y
+      this.width = width
+      this.height = height
+    },
+    onDrag: function(x, y) {
+      this.x = x
+      this.y = y
     }
   }
 }
-</script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+</script>
+<style type="text/css">
+.noooo {
+  padding: 20px;
+  border: 1px solid red;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.wapper {
+  overflow: auto;
+  height: 2000px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+#app>div>div.vdr.box,
+.box {
+  width: 200px;
+  height: 400px;
+  position: fixed;
+  top: 200px;
+  border: 1px solid red;
+  position: absolute;
 }
-a {
-  color: #42b983;
-}
+
 </style>

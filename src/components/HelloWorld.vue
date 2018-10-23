@@ -1,242 +1,67 @@
 <template>
   <div class="wapper">
-    <template v-if="makeBox.length>0">
-      <!--  <vue-draggable-resizable class="box"  v-for="item in makeBox" >
-  <p>You can drag me around and resize me as you wish.</p>
-</vue-draggable-resizable> -->
-      <div v-for="item in makeBox" :style="{top:item.top+'px'}" class="box"></div>
-    </template>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
-    <el-button @click="handleUser($event)" @mousemove='updateXY' size="small" type="primary" plain>回访</el-button>
-    <br/>
-    <br/>
-    <br/>
+    <el-button @click="dia">弹窗</el-button>
+    <div  ref="btn">kfnwe </div>
   </div>
 </template>
 <script>
-import VueDraggableResizable from 'vue-draggable-resizable'
-
+import "jquery"
+import '../../static/layer/layer.js'
+import '../../static/layer/theme/default/layer.css'
 export default {
-  data: function() {
-    return {
-      width: 0,
-      makeBox: [],
-      // calclass: 'cancel',
-      height: 0,
-      x: 0,
-      y: 0
-    }
+  name: 'HelloWorld',
+  data() {
+    return {}
   },
+  components: {},
   methods: {
-    handleUser(event) {
-      console.log(event)
-      let c = document.body.offsetHeight
-      let b = document.body.scrollHeight
-      console.log(c);
-      console.log(b);
-      let d = event.screenY
-      let cd = c/10
-      this.makeBox.push({ top:cd})
+    dia() {
+        console.log(this.$refs.btn[0])
+        this.$refs.btn.style.color="red"
+      layer.open({
+        type: 2 //此处以iframe举例
+          ,
+        title: '当你选择该窗体时，即会在最顶端',
+        area: ['390px', '330px'],
+        shade: 0,
+        offset: [ //为了演示，随机坐标
+          Math.random() * ($(window).height() - 300), Math.random() * ($(window).width() - 390)
+        ],
+        maxmin: true,
+        content: 'settop.html',
+        btn: ['继续弹出', '全部关闭'] //只是为了演示
+          ,
+        yes: function() {
+          $(that).click(); //此处只是为了演示，实际使用可以剔除
+        },
+        btn2: function() {
+            layer.closeAll();
+          }
 
-    },
-    updateXY: function(event) {
-      console.log(event.offsetX)
-      console.log(event.offsetY)
-    },
-    onResize: function(x, y, width, height) {
-      this.x = x
-      this.y = y
-      this.width = width
-      this.height = height
-    },
-    onDrag: function(x, y) {
-      this.x = x
-      this.y = y
+          ,
+        zIndex: layer.zIndex //重点1
+          ,
+        success: function(layero) {
+          layer.setTop(layero); //重点2
+        }
+      });
+      // layer.open({
+      //   type: 1 //Page层类型
+      //     ,
+      //   area: ['500px', '300px'],
+      //   title: '你好，layer。',
+      //   shade: 0 //遮罩透明度
+      //     ,
+      //   maxmin: true //允许全屏最小化
+      //     ,
+      //   anim: 1 //0-6的动画形式，-1不开启
+      //     ,
+      //   content: '<div style="padding:50px;">这是一个非常普通的页面层，传入了自定义的html</div>'
+      // });
     }
   }
 }
 
 </script>
-<style type="text/css">
-.noooo {
-  padding: 20px;
-  border: 1px solid red;
-}
-
-.wapper {
-  overflow: auto;
-  height: 2000px;
-}
-
-#app>div>div.vdr.box,
-.box {
-  width: 200px;
-  height: 400px;
-  position: fixed;
-  top: 200px;
-  border: 1px solid red;
-  position: absolute;
-}
-
+<style>
 </style>

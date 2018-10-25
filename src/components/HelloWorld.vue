@@ -1,23 +1,73 @@
 <template>
   <div class="wapper">
     <el-button @click="dia">弹窗</el-button>
-    <div  ref="btn">kfnwe </div>
+    <el-button @click="addDom">添加dom到body</el-button>
+    <el-button @click="testArr">testArr</el-button>
+    <div ref="btn">kfnwe </div>
+    <div class="domHtml">
+      <template v-for="item in mydata">
+        <p class="pColor">我是动态加载到body的</p>
+      </template>
+    </div>
+    <div class="myBtn">
+      <p v-for="(item,index) in arr" @click="delBtn(index)">{{item.name}}</p>
+    </div>
   </div>
 </template>
 <script>
+import Vue from 'vue'
+// 创建并挂载到 #app (会替换 #app)
+// new MyComponent().$mount('#app');
 import "jquery"
 import '../../static/layer/layer.js'
 import '../../static/layer/theme/default/layer.css'
 export default {
   name: 'HelloWorld',
   data() {
-    return {}
+    return {
+      mydata: [],
+      arr: [
+        { name: 'lili' },
+        { name: 'momo' },
+        { name: 'hahah' },
+        { name: 'wng ssssss' },
+        { name: '山东潍坊那我' },
+        { name: '午饭晚饭吗' },
+        { name: '初显成效' },
+      ]
+    }
   },
   components: {},
   methods: {
+    delBtn(index) {
+      this.arr.splice(index, 1)
+    },
+    addDom() {
+      let mm = document.getElementsByClassName("domHtml")[0]
+      console.log(mm)
+      mm.style.display = "block"
+      document.body.append(mm)
+      // document.querySelector("#app").append(mm)
+      // new myAppendTo().$mount().$appendTo('#app'); //appendTo
+      // new myBefore().$mount().$before('#app'); //before
+      // new myAfter().$mount().$after('#app'); //after
+    },
+    testArr() {
+      let arr = [
+        { name: 'lili' },
+        { name: 'momo' },
+        { name: 'hahah' },
+      ]
+      arr.splice(1, 1)
+      console.log(arr)
+    },
     dia() {
-        console.log(this.$refs.btn[0])
-        this.$refs.btn.style.color="red"
+      this.mydata.push({
+        name: Date.parse(new Date()) / 1000
+      })
+      return false
+      console.log(this.$refs.btn[0])
+      this.$refs.btn.style.color = "red"
       layer.open({
         type: 2 //此处以iframe举例
           ,
@@ -64,4 +114,14 @@ export default {
 
 </script>
 <style>
+.domHtml {
+  display: none;
+}
+
+.myBtn {
+  width: 100px;
+  height: 300px;
+  border: 1px solid red;
+}
+
 </style>

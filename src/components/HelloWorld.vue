@@ -1,127 +1,42 @@
 <template>
   <div class="wapper">
-    <el-button @click="dia">弹窗</el-button>
-    <el-button @click="addDom">添加dom到body</el-button>
-    <el-button @click="testArr">testArr</el-button>
-    <div ref="btn">kfnwe </div>
-    <div class="domHtml">
-      <template v-for="item in mydata">
-        <p class="pColor">我是动态加载到body的</p>
-      </template>
-    </div>
-    <div class="myBtn">
-      <p v-for="(item,index) in arr" @click="delBtn(index)">{{item.name}}</p>
-    </div>
+    开始时间：
+    <el-date-picker :picker-options="pickerOptions1" v-model="startTime" type="date" placeholder="选择日期" @change="changeTime">
+    </el-date-picker>
+    结束时间：
+    <el-date-picker :picker-options="pickerOptions2" v-model="endTime" type="date" placeholder="选择日期">
+    </el-date-picker>
   </div>
 </template>
 <script>
-import Vue from 'vue'
-// 创建并挂载到 #app (会替换 #app)
-// new MyComponent().$mount('#app');
-import "jquery"
-import '../../static/layer/layer.js'
-import '../../static/layer/theme/default/layer.css'
 export default {
   name: 'HelloWorld',
   data() {
     return {
-      mydata: [],
-      arr: [
-        { name: 'lili' },
-        { name: 'momo' },
-        { name: 'hahah' },
-        { name: 'wng ssssss' },
-        { name: '山东潍坊那我' },
-        { name: '午饭晚饭吗' },
-        { name: '初显成效' },
-      ]
+      startTime: '', //开始时间
+      endTime: '', //结束时间
+      pickerOptions1: { //开始时间的限制判断
+        disabledDate: (time) => {
+          if (this.endTime !== '' && this.endTime !== null) {
+            return time.getTime() > this.endTime.getTime();
+          }
+        },
+      },
+      pickerOptions2: { //结束时间的限制判断
+        disabledDate: (time) => {
+          if (this.startTime !== '' && this.startTime !== null) {
+            return time.getTime() < this.startTime.getTime();
+          }
+        },
+      }
     }
   },
   components: {},
   methods: {
-    delBtn(index) {
-      this.arr.splice(index, 1)
-    },
-    addDom() {
-      let mm = document.getElementsByClassName("domHtml")[0]
-      console.log(mm)
-      mm.style.display = "block"
-      document.body.append(mm)
-      // document.querySelector("#app").append(mm)
-      // new myAppendTo().$mount().$appendTo('#app'); //appendTo
-      // new myBefore().$mount().$before('#app'); //before
-      // new myAfter().$mount().$after('#app'); //after
-    },
-    testArr() {
-      let arr = [
-        { name: 'lili' },
-        { name: 'momo' },
-        { name: 'hahah' },
-      ]
-      arr.splice(1, 1)
-      console.log(arr)
-    },
-    dia() {
-      this.mydata.push({
-        name: Date.parse(new Date()) / 1000
-      })
-      return false
-      console.log(this.$refs.btn[0])
-      this.$refs.btn.style.color = "red"
-      layer.open({
-        type: 2 //此处以iframe举例
-          ,
-        title: '当你选择该窗体时，即会在最顶端',
-        area: ['390px', '330px'],
-        shade: 0,
-        offset: [ //为了演示，随机坐标
-          Math.random() * ($(window).height() - 300), Math.random() * ($(window).width() - 390)
-        ],
-        maxmin: true,
-        content: 'settop.html',
-        btn: ['继续弹出', '全部关闭'] //只是为了演示
-          ,
-        yes: function() {
-          $(that).click(); //此处只是为了演示，实际使用可以剔除
-        },
-        btn2: function() {
-            layer.closeAll();
-          }
-
-          ,
-        zIndex: layer.zIndex //重点1
-          ,
-        success: function(layero) {
-          layer.setTop(layero); //重点2
-        }
-      });
-      // layer.open({
-      //   type: 1 //Page层类型
-      //     ,
-      //   area: ['500px', '300px'],
-      //   title: '你好，layer。',
-      //   shade: 0 //遮罩透明度
-      //     ,
-      //   maxmin: true //允许全屏最小化
-      //     ,
-      //   anim: 1 //0-6的动画形式，-1不开启
-      //     ,
-      //   content: '<div style="padding:50px;">这是一个非常普通的页面层，传入了自定义的html</div>'
-      // });
+    changeTime() {
+      // console.log(this.startTime)
     }
   }
 }
 
 </script>
-<style>
-.domHtml {
-  display: none;
-}
-
-.myBtn {
-  width: 100px;
-  height: 300px;
-  border: 1px solid red;
-}
-
-</style>

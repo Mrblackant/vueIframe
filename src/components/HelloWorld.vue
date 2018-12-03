@@ -1,80 +1,119 @@
 <template>
   <div class="wapper">
-    开始时间：
-    <el-date-picker :picker-options="pickerOptions1" v-model="startTime" type="date" placeholder="选择日期" @change="changeTime">
-    </el-date-picker>
-    结束时间：
-    <el-date-picker :picker-options="pickerOptions2" v-model="endTime" type="date" placeholder="选择日期">
-    </el-date-picker>
-    <div>=+++++++++================================================</div>
-    <el-form :rules="model.rules" :model="model" ref="form">
-      <el-table :data="model.tableData" stripe style="width: 100%">
-        <el-table-column prop="address" label="地址">
-          <template slot-scope="scope">
-            {{scope.$index}}
-            <el-form-item :prop="'tableData.' + scope.$index + '.supplier'" :rules='model.rules.supplier'>
-              <el-select clearable v-model="scope.row.supplier">
-                <el-option label="哈哈哈" value="dieqa22"></el-option>
-              </el-select>
-            </el-form-item>
-          </template>
-        </el-table-column>
-      </el-table>
-    </el-form>
+    <el-table :data="tableData" ref="table" tooltip-effect="dark" border stripe style="width: 100%">
+      <el-table-column prop="date" label="日期" width="180">
+        <template slot-scope="scope">
+          <el-input v-if="scope.row.canWrite" :class="scope.row.date===''&&btnSaveClick ? 'badInp' : 'rightInp'" :ref="scope.row.id" v-model="scope.row.date"></el-input>
+          <!-- <el-input v-if="scope.row.canWrite" v-model="scope.row.date"></el-input> -->
+          <span v-else>{{scope.row.date}}</span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="schoolFeed" label="入学费用" width="180">
+        <template slot-scope="scope">
+          <el-input v-if="scope.row.canWrite" :class="scope.row.schoolFeed===''&&btnSaveClick ? 'badInp' : 'rightInp'" v-model="scope.row.schoolFeed"></el-input>
+          <span v-else>{{scope.row.schoolFeed}}</span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="name" label="姓名" width="180">
+      </el-table-column>
+      <el-table-column prop="address" label="地址">
+      </el-table-column>
+      <!-- 操作 -->
+      <el-table-column fixed="right" label="操作" width="100" class-name="makelll">
+        <template slot-scope="scope">
+          <el-button :class="scope.row.id" @click="handleClick(scope.row,$event)" type="text" size="small">禁用</el-button>
+          <el-button type="text" size="small" @click="edit(scope.row)">启用</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <el-row type="flex" justify="center">
+      <el-button pain @click="saveBtn">保存</el-button>
+    </el-row>
   </div>
 </template>
 <script>
-export default {
+  export default {
   name: 'HelloWorld',
   data() {
     return {
+      btnSaveClick:false,
+      tableData: [{
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄',
+        id: "one",//动态控制
+        canWrite:true,//是否禁用
+        schoolFeed:''//入学费用
+      }, {
+        date: '2016-05-04',
+        id: "two",
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1517 弄',
+        canWrite:true,//是否禁用
+        schoolFeed:''//入学费用
 
-      model: { //表单
-        rules: {
-          supplier: { type: "string", required: true, message: "必填字段", trigger: "change" }
-        },
-        tableData: [{
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }],
-      },
-      startTime: '', //开始时间
-      endTime: '', //结束时间
-      pickerOptions1: { //开始时间的限制判断
-        disabledDate: (time) => {
-          if (this.endTime !== '' && this.endTime !== null) {
-            return time.getTime() > this.endTime.getTime();
-          }
-        },
-      },
-      pickerOptions2: { //结束时间的限制判断
-        disabledDate: (time) => {
-          if (this.startTime !== '' && this.startTime !== null) {
-            return time.getTime() < this.startTime.getTime();
-          }
-        },
-      }
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        id: "three",
+        address: '上海市普陀区金沙江路 1519 弄',
+        canWrite:true,//是否禁用
+        schoolFeed:''//入学费用
+
+
+      }]
     }
   },
   components: {},
   methods: {
-    changeTime() {
-      // console.log(this.startTime)
+    selectRow() {
+
+    },
+    handleClick(data,e){
+      let detailClass="."+data.id
+      // let badDom='<div class="lineBad"></div>'
+    $(detailClass).parents('tr').find('td').not(".makelll").addClass('lineThoung')
+      data.canWrite=false
+      // console.log(e)
+      // console.log($(e))
+    },
+    edit(data,e){
+      let detailClass="."+data.id
+        $(detailClass).parents('tr').find('td').removeClass('lineThoung')
+      data.canWrite=true
+    },
+    saveBtn() {
+      this.btnSaveClick=true
+      // this.tableData.forEach((item, index) => {
+      //   if (item.date === '') {
+      //     this.tableData[index].id='bad'
+      //   }else{
+      //     this.tableData[index].id='bad'
+      //   }
+      // })
     }
   }
 }
 
 </script>
+<style type="text/css">
+.hover-row .badInp input{
+  border-color: red;
+
+}
+.badInp input {
+  border-color: red;
+}
+
+.lineThoung {
+  text-decoration: line-through;
+  text-decoration-color: red;
+}
+
+.lineBad {
+  width: 100%;
+  height: 3px;
+  background-color: red;
+}
+
+</style>

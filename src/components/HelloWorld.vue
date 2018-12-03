@@ -97,10 +97,11 @@
 
 </script>
 <style type="text/css">
-.hover-row .badInp input{
+.hover-row .badInp input {
   border-color: red;
 
 }
+
 .badInp input {
   border-color: red;
 }

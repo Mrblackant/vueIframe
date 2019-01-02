@@ -1,71 +1,88 @@
 <template>
   <div class="wapper">
-    <el-table :data="tableData" ref="table" tooltip-effect="dark" border stripe style="width: 100%">
-      <el-table-column prop="date" label="日期" width="180">
-        <template slot-scope="scope">
-          <el-input v-if="scope.row.canWrite" :class="scope.row.date===''&&btnSaveClick ? 'badInp' : 'rightInp'" :ref="scope.row.id" v-model="scope.row.date"></el-input>
-          <!-- <el-input v-if="scope.row.canWrite" v-model="scope.row.date"></el-input> -->
-          <span v-else>{{scope.row.date}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column prop="schoolFeed" label="入学费用" width="180">
-        <template slot-scope="scope">
-          <el-input v-if="scope.row.canWrite" :class="scope.row.schoolFeed===''&&btnSaveClick ? 'badInp' : 'rightInp'" v-model="scope.row.schoolFeed"></el-input>
-          <span v-else>{{scope.row.schoolFeed}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column prop="name" label="姓名" width="180">
-      </el-table-column>
-      <el-table-column prop="address" label="地址">
-      </el-table-column>
-      <!-- 操作 -->
-      <el-table-column fixed="right" label="操作" width="100" class-name="makelll">
-        <template slot-scope="scope">
-          <el-button :class="scope.row.id" @click="handleClick(scope.row,$event)" type="text" size="small">禁用</el-button>
-          <el-button type="text" size="small" @click="edit(scope.row)">启用</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
-    <el-row type="flex" justify="center">
-      <el-button pain @click="saveBtn">保存</el-button>
-    </el-row>
+    <div class="imageWrapper" ref="imageWrapper">
+      ddddd
+      <slot></slot>
+    </div>
+    <el-button @click="shotCb">生成</el-button>
+    <img class="real_pic" :src="dataURL" />
+    <a :href="dataURL" class="down" download="下载">下载</a>
   </div>
 </template>
 <script>
+  import html2canvas from 'html2canvas'
   export default {
   name: 'HelloWorld',
   data() {
     return {
-      btnSaveClick:false,
-      tableData: [{
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄',
-        id: "one",//动态控制
-        canWrite:true,//是否禁用
-        schoolFeed:''//入学费用
-      }, {
-        date: '2016-05-04',
-        id: "two",
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1517 弄',
-        canWrite:true,//是否禁用
-        schoolFeed:''//入学费用
+        dataURL: '',
 
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        id: "three",
-        address: '上海市普陀区金沙江路 1519 弄',
-        canWrite:true,//是否禁用
-        schoolFeed:''//入学费用
-
-
-      }]
-    }
+      }
+    
   },
   components: {},
   methods: {
+    toImage() {
+  html2canvas(this.$refs.imageWrapper,{
+    backgroundColor: null
+  }).then((canvas) => {
+    let dataURL = canvas.toDataURL("image/png");
+    this.dataURL = dataURL;
+    console.log(dataURL)
+    window.location.href=dataURL
+  });
+},
+ shotCb() {
+    var option = {};
+    event.preventDefault();
+    // var width = document.body.clientWidth;
+    // var height = document.body.clientHeight;
+    var width =350
+    var height =568
+    //要将 canvas 的宽高设置成容器宽高的 2 倍
+    var canvas = document.createElement("canvas");
+    canvas.width = width * 2;
+    canvas.height = height * 2;
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+    var context = canvas.getContext("2d");
+    //然后将画布缩放，将图像放大两倍画到画布上
+    context.scale(2, 2);
+     html2canvas(this.$refs.imageWrapper,{
+    backgroundColor: null,
+     width: option.width || width,
+        height: option.height || height,
+        canvas: canvas,
+  }).then((canvas) => {
+    let dataURL = canvas.toDataURL("image/png");
+    this.dataURL = dataURL;
+    console.log(dataURL)
+    // window.location.href=dataURL
+  });
+    // html2canvas(document.getElementById('phone-wrap'), {
+    //     width: option.width || width,
+    //     height: option.height || height,
+    //     canvas: canvas,
+    //     onrendered: function(canvas) {
+    //       console.log(this.width)
+    //       console.log(this.height)
+    //       // return
+    //         //生成base64图片数据
+    //         // var dataUrl = canvas.toDataURL()
+    //         var dataUrl = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    //         window.location.href = dataUrl; // 下载图片
+
+    //           // console.log(dataUrl)
+    //         var newImg = document.createElement("img");
+    //         console.log(newImg)
+    //         newImg.src = dataUrl;
+    //         // newImg.attr('class') = "mamammm";
+    //         newImg.width = this.width;
+    //         newImg.height = this.height;
+    //         document.body.appendChild(newImg);
+    //     }
+    // });
+},
     selectRow() {
 
     },
@@ -97,24 +114,9 @@
 
 </script>
 <style type="text/css">
-.hover-row .badInp input {
-  border-color: red;
-
-}
-
-.badInp input {
-  border-color: red;
-}
-
-.lineThoung {
-  text-decoration: line-through;
-  text-decoration-color: red;
-}
-
-.lineBad {
-  width: 100%;
-  height: 3px;
-  background-color: red;
+.imageWrapper {
+  padding: 30px;
+  border: 2px solid red;
 }
 
 </style>

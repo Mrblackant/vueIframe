@@ -1,114 +1,63 @@
 <template>
   <div class="wapper">
-    <div class="imageWrapper" ref="imageWrapper">
-      ddddd
-      <slot></slot>
-    </div>
-    <el-button @click="shotCb">生成</el-button>
-    <img class="real_pic" :src="dataURL" />
-    <a :href="dataURL" class="down" download="下载">下载</a>
+    <el-button @click="testNull">测试</el-button>
   </div>
 </template>
 <script>
-  import html2canvas from 'html2canvas'
   export default {
   name: 'HelloWorld',
   data() {
     return {
-        dataURL: '',
-
-      }
+    obj1:[
+       {name:'lili',
+       age:10,
+       h:{
+            m:'ml'
+          }
+     }],
+         obj2:[
+          {name:'lili',age:10,h:{
+            m:'ml'
+          }}
+          ]
+          }
+      },
     
-  },
   components: {},
   methods: {
-    toImage() {
-  html2canvas(this.$refs.imageWrapper,{
-    backgroundColor: null
-  }).then((canvas) => {
-    let dataURL = canvas.toDataURL("image/png");
-    this.dataURL = dataURL;
-    console.log(dataURL)
-    window.location.href=dataURL
-  });
-},
- shotCb() {
-    var option = {};
-    event.preventDefault();
-    // var width = document.body.clientWidth;
-    // var height = document.body.clientHeight;
-    var width =350
-    var height =568
-    //要将 canvas 的宽高设置成容器宽高的 2 倍
-    var canvas = document.createElement("canvas");
-    canvas.width = width * 2;
-    canvas.height = height * 2;
-    canvas.style.width = width + "px";
-    canvas.style.height = height + "px";
-    var context = canvas.getContext("2d");
-    //然后将画布缩放，将图像放大两倍画到画布上
-    context.scale(2, 2);
-     html2canvas(this.$refs.imageWrapper,{
-    backgroundColor: null,
-     width: option.width || width,
-        height: option.height || height,
-        canvas: canvas,
-  }).then((canvas) => {
-    let dataURL = canvas.toDataURL("image/png");
-    this.dataURL = dataURL;
-    console.log(dataURL)
-    // window.location.href=dataURL
-  });
-    // html2canvas(document.getElementById('phone-wrap'), {
-    //     width: option.width || width,
-    //     height: option.height || height,
-    //     canvas: canvas,
-    //     onrendered: function(canvas) {
-    //       console.log(this.width)
-    //       console.log(this.height)
-    //       // return
-    //         //生成base64图片数据
-    //         // var dataUrl = canvas.toDataURL()
-    //         var dataUrl = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    //         window.location.href = dataUrl; // 下载图片
-
-    //           // console.log(dataUrl)
-    //         var newImg = document.createElement("img");
-    //         console.log(newImg)
-    //         newImg.src = dataUrl;
-    //         // newImg.attr('class') = "mamammm";
-    //         newImg.width = this.width;
-    //         newImg.height = this.height;
-    //         document.body.appendChild(newImg);
-    //     }
-    // });
-},
-    selectRow() {
-
-    },
-    handleClick(data,e){
-      let detailClass="."+data.id
-      // let badDom='<div class="lineBad"></div>'
-    $(detailClass).parents('tr').find('td').not(".makelll").addClass('lineThoung')
-      data.canWrite=false
-      // console.log(e)
-      // console.log($(e))
-    },
-    edit(data,e){
-      let detailClass="."+data.id
-        $(detailClass).parents('tr').find('td').removeClass('lineThoung')
-      data.canWrite=true
-    },
-    saveBtn() {
-      this.btnSaveClick=true
-      // this.tableData.forEach((item, index) => {
-      //   if (item.date === '') {
-      //     this.tableData[index].id='bad'
-      //   }else{
-      //     this.tableData[index].id='bad'
-      //   }
-      // })
+ testNull(){
+console.log(this.isObjectValueEqual(this.obj1[0],this.obj2[0]))
+ },
+  isObjectValueEqual(a, b) {
+    //取对象a和b的属性名
+    var aProps = Object.keys(a);
+    var bProps = Object.keys(b);
+    //判断属性名的length是否一致
+    if (aProps.length != bProps.length) {
+        return false
     }
+    //循环取出属性名，再判断属性值是否一致
+    for (var i = 0; i < aProps.length; i++) {
+        var propName = aProps[i];
+        if (typeof a[propName] ==='object'||typeof b[propName] ==='object') {
+          console.log( a[propName])
+          if (JSON.stringify( a[propName]) !== JSON.stringify( b[propName])) {
+            return false
+          }
+        }else  if (a[propName] !== b[propName]) {
+            console.log(a[propName])
+            console.log(b[propName])
+            console.log(propName)
+            
+        return false
+        }
+      
+
+    }
+
+    return true;
+
+}
   }
 }
 

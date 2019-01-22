@@ -2,7 +2,7 @@
   <div class="wapper">
     <el-date-picker v-model="radioChoseTime" type="date" placeholder="选择生效时间" value-format="timestamp" :picker-options="pickerOptions1">
     </el-date-picker>
-    <el-table :data="tableData" style="width: 100%" class="lx_table_wapper common_table_set">
+    <el-table :data="tableData" style="width: 100%" class="lx_table_wapper common_table_set" max-height="400">
       <el-table-column prop="" width="300" label="选择类别">
         <template slot-scope="scope">
           <el-select @change="serviceTypeChange(scope)" v-model='scope.row.serviceType.code'>
@@ -11,9 +11,68 @@
           </el-select>
         </template>
       </el-table-column>
+       <el-table-column prop="" width="300" label="选择类别">
+        <template slot-scope="scope">
+          <el-select @change="serviceTypeChange(scope)" v-model='scope.row.serviceType.code'>
+            <el-option v-for="(item,index) in serviceTypeOpt" :label="item.name" :value="item.code" :key="item.code">
+            </el-option>
+          </el-select>
+        </template>
+      </el-table-column>
+       <el-table-column prop="" width="300" label="选择类别">
+        <template slot-scope="scope">
+          <el-select @change="serviceTypeChange(scope)" v-model='scope.row.serviceType.code'>
+            <el-option v-for="(item,index) in serviceTypeOpt" :label="item.name" :value="item.code" :key="item.code">
+            </el-option>
+          </el-select>
+        </template>
+      </el-table-column>
+       <el-table-column prop="" width="300" label="选择类别">
+        <template slot-scope="scope">
+          <el-select @change="serviceTypeChange(scope)" v-model='scope.row.serviceType.code'>
+            <el-option v-for="(item,index) in serviceTypeOpt" :label="item.name" :value="item.code" :key="item.code">
+            </el-option>
+          </el-select>
+        </template>
+      </el-table-column>
+       <el-table-column prop="" width="300" label="选择类别">
+        <template slot-scope="scope">
+          <el-select @change="serviceTypeChange(scope)" v-model='scope.row.serviceType.code'>
+            <el-option v-for="(item,index) in serviceTypeOpt" :label="item.name" :value="item.code" :key="item.code">
+            </el-option>
+          </el-select>
+        </template>
+      </el-table-column>
+       <el-table-column prop="" width="300" label="选择类别">
+        <template slot-scope="scope">
+          <el-select @change="serviceTypeChange(scope)" v-model='scope.row.serviceType.code'>
+            <el-option v-for="(item,index) in serviceTypeOpt" :label="item.name" :value="item.code" :key="item.code">
+            </el-option>
+          </el-select>
+        </template>
+      </el-table-column>
+       <el-table-column prop="" width="300" label="选择类别">
+        <template slot-scope="scope">
+          <el-select @change="serviceTypeChange(scope)" v-model='scope.row.serviceType.code'>
+            <el-option v-for="(item,index) in serviceTypeOpt" :label="item.name" :value="item.code" :key="item.code">
+            </el-option>
+          </el-select>
+        </template>
+      </el-table-column>
+
       <el-table-column prop="name" width="300" label="名称">
       </el-table-column>
       <el-table-column :formatter="formatterServiceType" prop="serviceType" width="300" label="服务类型">
+      </el-table-column>
+       <el-table-column :formatter="formatterServiceType" prop="serviceType" width="300" label="服务类型">
+      </el-table-column>
+       <el-table-column :formatter="formatterServiceType" prop="serviceType" width="300" label="服务类型">
+      </el-table-column>
+       <el-table-column :formatter="formatterServiceType" prop="serviceType" width="300" label="服务类型">
+      </el-table-column>
+       <el-table-column :formatter="formatterServiceType" prop="serviceType" width="300" label="服务类型">
+      </el-table-column>
+       <el-table-column :formatter="formatterServiceType" prop="serviceType" width="300" label="服务类型">
       </el-table-column>
       <el-table-column prop="feeVisaReject" label="拒签扣款">
         <template slot-scope="scope">
@@ -85,6 +144,9 @@ export default {
   components: {
     foraTable
   },
+  mounted() {
+    this.makeData()
+  },
   data() {
     return {
       pickerOptions1: {
@@ -107,24 +169,7 @@ export default {
         code: "SIGN_SCHOOL",
         name: "入学+签证"
       }],
-      tableData: [{
-          name: 'lili',
-          serviceType: { code: "ONLY_SIGN", name: "单办签证" },
-          feeApplyschool: '',
-          feeApplyvisa: '',
-          feeVisaReject: ''
-        },
-        {
-          name: 'lili',
-          serviceType: { code: "ONLY_SIGN", name: "单办签证" },
-          feeApplyschool: 200,
-          feeApplyvisa: '',
-          feeVisaReject: ''
-
-
-
-        }
-      ]
+      tableData: []
     }
   },
 
@@ -133,6 +178,20 @@ export default {
 
   },
   methods: {
+    makeData() {
+      let tempData = []
+      for (var i = 0; i < 10; i++) {
+        tempData.push({
+          name: 'lili',
+          serviceType: { code: "ONLY_SIGN", name: "单办签证" },
+          feeApplyschool: '',
+          feeApplyvisa: '',
+          feeVisaReject: ''
+        })
+      }
+      console.log(tempData)
+      this.tableData = tempData
+    },
     choseChangeTime() { //选择时间-立即生效的单选
       // this.radioChoseTime = new Date().getTime()
       console.log(this.radioChoseTime)
@@ -225,6 +284,11 @@ export default {
 .imageWrapper {
   padding: 30px;
   border: 2px solid red;
+}
+
+.lx_table_wapper {
+  // max-height: 400px;
+
 }
 
 </style>

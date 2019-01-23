@@ -13,7 +13,6 @@
         </el-table-column>
       </el-table>
       <!-- ========= -->
-      
       <template v-for="(i1 ,index) in tabledata">
        <edit-form :index="index" :data="i1"></edit-form>
       </template>
@@ -65,7 +64,7 @@ export default {
   methods: {
     makeData() {
       let tempData = []
-      for (var i = 0; i < 300; i++) {
+      for (var i = 0; i < 2; i++) {
         tempData.push({
           name: 'lili',
           age: 30,

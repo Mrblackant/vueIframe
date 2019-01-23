@@ -1,217 +1,159 @@
 <template>
-  <div class="wapper">
-    <el-date-picker v-model="radioChoseTime" type="date" placeholder="选择生效时间" value-format="timestamp" :picker-options="pickerOptions1">
-    </el-date-picker>
-    <table>
-      <template v-for="(data,index) in tableData">
-        <tr :key="index">
-          <td>
-            <ul>
-              <li id="1" @click="changeData(data,1)">1</li>
-              <li id="2">2</li>
-              <li id="3">3</li>
-            </ul>
-            <el-select @change="serviceTypeChange(data)" v-model='data.serviceType.code'>
-              <el-option v-for="(item,index) in serviceTypeOpt" :label="item.name" :value="item.code" :key="item.code">
-              </el-option>
-            </el-select>
-          </td>
-          <td>
-             {{data.serviceType.code}}
-            <el-input v-model="data.serviceType.code"></el-input>
-           <!--  <el-select @change="serviceTypeChange(data)" v-model='data.serviceType.code'>
-              <el-option v-for="(item,index) in serviceTypeOpt" :label="item.name" :value="item.code" :key="item.code">
-              </el-option>
-            </el-select> -->
-          </td>
-          <td>
-             {{data.serviceType.code}}
-            <el-input v-model="data.serviceType.code"></el-input>
-           <!--  <el-select @change="serviceTypeChange(data)" v-model='data.serviceType.code'>
-              <el-option v-for="(item,index) in serviceTypeOpt" :label="item.name" :value="item.code" :key="item.code">
-              </el-option>
-            </el-select> -->
-          </td>
-          <td>
-             {{data.serviceType.code}}
-            <el-input v-model="data.serviceType.code"></el-input>
-            <!-- <el-select @change="serviceTypeChange(data)" v-model='data.serviceType.code'>
-              <el-option v-for="(item,index) in serviceTypeOpt" :label="item.name" :value="item.code" :key="item.code">
-              </el-option>
-            </el-select> -->
-          </td>
-          <td>
-            {{data.serviceType.code}}
-            <el-input v-model="data.serviceType.code"></el-input>
-            <!-- <el-select @change="serviceTypeChange(data)" v-model='data.serviceType.code'>
-              <el-option v-for="(item,index) in serviceTypeOpt" :label="item.name" :value="item.code" :key="item.code">
-              </el-option>
-            </el-select> -->
-          </td>
-          <!--  <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td> -->
-        </tr>
-      </template>
-    </table>
-    <el-radio @change="choseChangeTime" v-model="radioChoseTime" class="lx_radio_btn" label="1" border>立即生效</el-radio>
-    <el-button @click="saveSth">保存</el-button>
-    <el-button @click="testSome">测试</el-button>
+  <div id="app">
+    <div class="makeWapper">
+      <table border>
+        <th>
+        <td>牛牛牛</td>
+        <td>nanlin </td>
+        <td>牛牛牛</td>
+        <td>牛牛牛</td>
+        </th>
+        <template v-if="tabledata.length>0">
+          <template v-for="(item,index) in tabledata">
+            <edit-form :data="item">
+            </edit-form>
+          </template>
+        </template>
+      </table>
+      <!-- <el-table></el-table> -->
+    </div>
+    <!--  <el-breadcrumb separator="/">
+            <el-breadcrumb-item>主页</el-breadcrumb-item>
+            <el-breadcrumb-item>某表单页</el-breadcrumb-item>
+        </el-breadcrumb>
+        <main class="ct-wrap">
+            <div class="ct">
+                <div class="basic-info ct-form" v-for="(config, configIndex) in formConfig" :key="configIndex">
+                    <edit-form
+                        :config="config"
+                        :data="formData"
+                        :options="formOptions">
+                    </edit-form>
+                </div>
+            </div>
+        </main> -->
   </div>
 </template>
-<script type="text/ecmascript-6">
-import foraTable from "./forTable.vue"
+<script>
+import editForm from './edit-form.vue';
+import API from './api';
+
 export default {
-  name: 'HelloWorld',
-  components: {
-    foraTable
+  name: 'app',
+  data() {
+    return {
+      tabledata: [{
+        name: 'lili',
+        age: 30,
+        cnCode: '',
+        anum: 30,
+        bnum: 30,
+        cnum: 50,
+        dnum: 900,
+      }],
+      formOptions: {},
+      formConfig: [],
+      formData: {},
+      msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    makeData() {
+      let tempData = []
+      for (var i = 0; i < 10; i++) {
+        tempData.push({
+          name: 'lili',
+          age: 30,
+          cnCode: '',
+          anum: 30,
+          bnum: 30,
+          cnum: 50,
+          dnum: 900,
+        })
+      }
+      // console.log(tempData)
+      this.tabledata = tempData
+    }
   },
   mounted() {
     this.makeData()
+    // API.getFormConfigData()
+    //   .then((d) => {
+    //     this.formOptions = d.formOptions;
+    //     this.formConfig = d.formConfig;
+    //     this.formData = d.formData;
+    //   });
   },
-  data() {
-    return {
-      pickerOptions1: {
-        disabledDate(time) {
-          return time.getTime() < Date.now();
-        }
-      },
-      formClick: false,
-      radioChoseTime: '', //立即生效的勾选框
-
-      returnTxt: '说是计算机',
-      serviceTypeOpt: [{
-        code: "ONLY_SCHOOL",
-        name: "单办入学"
-      }, {
-        code: "ONLY_SIGN",
-        name: "单办签证"
-
-      }, {
-        code: "SIGN_SCHOOL",
-        name: "入学+签证"
-      }],
-      tableData: []
-    }
-  },
-
-
-  filters: {
-
-  },
-  methods: {
-    changeData(data, value) {
-      data.serviceType.code = value
-    },
-    makeData() {
-      let tempData = []
-      for (var i = 0; i < 500; i++) {
-        tempData.push({
-          name: 'lili',
-          serviceType: { code: "ONLY_SIGN", name: "单办签证" },
-          feeApplyschool: '',
-          feeApplyvisa: '',
-          feeVisaReject: ''
-        })
-      }
-      this.tableData = tempData
-    },
-    choseChangeTime() { //选择时间-立即生效的单选
-      // this.radioChoseTime = new Date().getTime()
-
-    },
-    testSome() {
-      var aee = [1, 3, 4, 5]
-      aee = aee.map((item, index) => {
-        this.testWhen(index, aee.length)
-        if (item > 3) {
-          return item
-        }
-      })
-
-    },
-    testWhen(index, len) {
-      if (index + 1 === len) {
-        alert(index)
-      }
-    },
-    filterReturnTxt(data) {
-      if (returnTxt === 0 || returnTxt === '0') {
-        return "当前项不可为0"
-      } else if (returnTxt === '') {
-        return "当前项不可为空"
-      } else {
-        return data
-      }
-    },
-    saveSth() {
-      this.formClick = true
-      let noreeditStr = "21990bbndnsnl"
-      noreeditStr = noreeditStr.substring(1, noreeditStr.length)
-      var arr = ['a', 'b', 'c']
-      var arr2 = ['a', 'b', 'd']
-      this.sortStringArr(arr, arr2)
-
-    },
-    sortStringArr(arr, arr2) { //对数组进行排序转字符串
-      let base = []
-
-      arr.forEach((item, index) => {
-        arr2.forEach((item2, index) => {
-          if (item === item2) {
-            base.push(item)
-          }
-        })
-      })
-    },
-    handleClick(scope, typeKey) { //限制不能输入0开头，只能输入数字
-      this.$nextTick(() => {
-        if (scope.row[typeKey] !== null) {
-          if (parseInt(scope.row[typeKey]) === 0) {
-            scope.row[typeKey] = ''
-          } else {
-            scope.row[typeKey] = scope.row[typeKey].replace(/[^\d]/g, '')
-          }
-        }
-      })
-    },
-    serviceTypeChange(scope) {
-      // let scopeServiceType = scope.row.serviceType.code
-      // if (scopeServiceType === 'ONLY_SCHOOL') {
-      //   // 只有入学
-
-      //   scope.row.feeApplyvisa = 0
-      //   scope.row.feeVisaReject = 0
-      // }
-
-
-    },
-    formatterServiceType(row, column) { //服务类型的筛选
-      return row.serviceType.name
-    },
+  components: {
+    editForm
   }
 }
 
 </script>
-<style lang="scss" rel="stylesheet/scss">
-@import "./hellow.scss";
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin: 60px auto;
+}
 
-.wapper {
-  height: 400px;
+.ct-wrap {
+  position: relative;
+  margin-top: 64px;
+  height: 600px;
   overflow: auto;
+  border: 1px solid red;
 }
 
-.imageWrapper {
-  padding: 30px;
-  border: 2px solid red;
+.ct {
+  width: 1110px;
+  margin: 0 auto;
+  border: 1px solid #BFBFBF;
+  padding: 56px 40px 40px;
+  box-sizing: border-box;
 }
 
-.lx_table_wapper {
-  // max-height: 400px;
+.ct-form {
+  margin-bottom: 48px;
+}
 
+.form__title {
+  margin-bottom: 32px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.form-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.form-content .el-form-item {
+  width: 440px;
+}
+
+.form-content .el-input {
+  width: 194px;
+}
+
+.form-content .el-form-item.form-item--full {
+  width: 100%;
+}
+
+.form-content .form-item-unit--full {
+  width: 696px;
+}
+
+.makeWapper {
+  height: 600px;
+  border: 1px solid red;
+  overflow: auto;
 }
 
 </style>

@@ -1,37 +1,24 @@
 <template>
   <div id="app">
-    <div class="makeWapper">
-      <table border>
-        <th>
-        <td>牛牛牛</td>
-        <td>nanlin </td>
-        <td>牛牛牛</td>
-        <td>牛牛牛</td>
-        </th>
-        <template v-if="tabledata.length>0">
-          <template v-for="(item,index) in tabledata">
-            <edit-form :data="item">
-            </edit-form>
+    <div class="makeWapper" v-if="tabledata.length>0">
+      <el-table :data="tabledata2" class="ooo">
+        <el-table-column prop="name" label="姓名" width="180">
+        </el-table-column>
+        <el-table-column props="cnCode" label="国家" width="100">
+          <template slot-scope="scope">
+            <el-select v-model="scope.row.cnCode">
+              <el-option v-for="i2 in countryOpt" :key="i2.code" :value="i2.code" :label="i2.name"></el-option>
+            </el-select>
           </template>
-        </template>
-      </table>
-      <!-- <el-table></el-table> -->
+        </el-table-column>
+      </el-table>
+      <!-- ========= -->
+      
+      <template v-for="(i1 ,index) in tabledata">
+       <edit-form :index="index" :data="i1"></edit-form>
+      </template>
+      <!-- ========= -->
     </div>
-    <!--  <el-breadcrumb separator="/">
-            <el-breadcrumb-item>主页</el-breadcrumb-item>
-            <el-breadcrumb-item>某表单页</el-breadcrumb-item>
-        </el-breadcrumb>
-        <main class="ct-wrap">
-            <div class="ct">
-                <div class="basic-info ct-form" v-for="(config, configIndex) in formConfig" :key="configIndex">
-                    <edit-form
-                        :config="config"
-                        :data="formData"
-                        :options="formOptions">
-                    </edit-form>
-                </div>
-            </div>
-        </main> -->
   </div>
 </template>
 <script>
@@ -42,15 +29,33 @@ export default {
   name: 'app',
   data() {
     return {
-      tabledata: [{
+      countryOpt: [{
+          code: 'us',
+          name: '美国'
+        },
+        {
+          code: 'uk',
+          name: '英国'
+        },
+        {
+          code: 'gb',
+          name: '日本'
+        },
+        {
+          code: 'cn',
+          name: '中国'
+        }
+      ],
+      tabledata2: [{
         name: 'lili',
         age: 30,
         cnCode: '',
         anum: 30,
         bnum: 30,
         cnum: 50,
-        dnum: 900,
+        dnum: 900
       }],
+      tabledata: [],
       formOptions: {},
       formConfig: [],
       formData: {},
@@ -60,7 +65,7 @@ export default {
   methods: {
     makeData() {
       let tempData = []
-      for (var i = 0; i < 10; i++) {
+      for (var i = 0; i < 300; i++) {
         tempData.push({
           name: 'lili',
           age: 30,
@@ -71,8 +76,32 @@ export default {
           dnum: 900,
         })
       }
-      // console.log(tempData)
-      this.tabledata = tempData
+      let cc = this.chunk(tempData, 2)
+      this.tabledata = cc
+    },
+    chunk(array, size) {
+      //获取数组的长度，如果你传入的不是数组，那么获取到的就是undefined
+      const length = array.length
+      //判断不是数组，或者size没有设置，size小于1，就返回空数组
+      if (!length || !size || size < 1) {
+        return []
+      }
+      //核心部分
+      let index = 0 //用来表示切割元素的范围start
+      let resIndex = 0 //用来递增表示输出数组的下标
+
+      //根据length和size算出输出数组的长度，并且创建它。
+      let result = new Array(Math.ceil(length / size))
+      //进行循环
+      while (index < length) {
+        //循环过程中设置result[0]和result[1]的值。该值根据array.slice切割得到。
+        result[resIndex++] = array.slice(index, (index += size))
+      }
+      //输出新数组
+      return result
+    },
+    makeSplice() {
+
     }
   },
   mounted() {
@@ -90,7 +119,9 @@ export default {
 }
 
 </script>
-<style>
+<style lang="scss" rel="stylesheet/scss">
+// @import "./feesChange.scss";
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -154,6 +185,11 @@ export default {
   height: 600px;
   border: 1px solid red;
   overflow: auto;
+}
+
+.ooo {
+  margin-bottom: 30px;
+  border: 1px solid red;
 }
 
 </style>

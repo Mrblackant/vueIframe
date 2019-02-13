@@ -1,32 +1,53 @@
 <template>
   <div id="app">
-    <div class="container">
-      <div id="left-div">
-        <div id="left-div1">
-          <table>
+    <div style="width: 100%;border:1px solid red;">
+      <div class="table-head">
+        <table align="center">
+          <thead>
             <tr>
-              <th>编号</th>
+              <th>序号</th>
+              <th>内容</th>
+              <th>内容</th>
+              <th>内容</th>
             </tr>
-          </table>
-        </div>
-        <div id="left-div2">
-          <table id="left-table2"></table>
-        </div>
-      </div>
-      <div id="right-div">
-        <div id="right-div1">
-          <table id="right-table1">
+          </thead>
+          <tbody>
             <tr>
-              <th>设备名称</th>
-              <th>设备类型</th>
-              <th>故障类型</th>
-              <th>故障状态</th>
+              <td>1</td>
+              <td>我只是用来测试的</td>
+              <td>我只是用来测试的</td>
+              <td>我只是用来测试的</td>
             </tr>
-          </table>
-        </div>
-        <div id="right-div2">
-          <table id="right-table2"></table>
-        </div>
+            <tr>
+              <td>2</td>
+              <td>我只是用来测试的</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>我只是用来测试的</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>我只是用来测试的</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>我只是用来测试的</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>我只是用来测试的</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>我只是用来测试的</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>我只是用来测试的</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -39,146 +60,34 @@ export default {
   },
   methods: {},
   mounted() {
-       //生成表格内容
-            let htmlLeft = '';
-            let htmlRight = '';
-            for(let i=1;i<=7;i++){
-                htmlLeft +='<tr>';
-                htmlLeft +='<td>'+i+'</td>';
-                htmlLeft +='</tr>';
-            }
-            for(let i=1;i<=7;i++){
-                htmlRight+='<tr>';
-                htmlRight+='<td>A</td>';
-                htmlRight+='<td>100</td>';
-                htmlRight+='<td>500</td>';
-                htmlRight+='<td>1</td>';
-                htmlRight+='</tr>';
-            }
-            $('#left-table2').html(htmlLeft);
-            $('#right-table2').html(htmlRight);
-            //滚动
-            $('#right-div2').on('scroll',function(){
-                let top=$(this).scrollTop();
-                let left=$(this).scrollLeft();
-                $('#left-div2').scrollTop(top);
-                $('#right-div1').scrollLeft(left);
-            })
+
   },
 
 }
 
 </script>
 <style lang="scss" rel="stylesheet/scss">
-* {
-  margin: 0;
-  padding: 0;
+table tbody {
+  display: block;
+  height: 200px;
+  overflow-y: scroll;
 }
 
-table {
+table thead,
+table tbody tr {
+  display: table;
   width: 100%;
-  text-align: center;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-table td {
-  word-break: break-all;
-  word-wrap: break-word;
-}
-
-.container {
-  width: 600px;
-  height: 500px;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-#left-div {
-  width: 80px;
-  float: left;
-}
-
-#left-div1 {
-  width: 100%;
-}
-
-#left-div2 {
-  width: 100%;
-  height: 250px;
-  overflow: hidden;
-}
-
-#left-table2 {
-  margin-bottom: 4px;
-}
-
-#right-div {
-  float: left;
-  width: 240px;
-}
-
-#right-div1 {
-  width: 100%;
-  overflow: hidden;
-}
-
-#right-div2 {
-  width: 100%;
-  height: 250px;
-  overflow: auto;
-}
-
-#right-table1 {
-  width: 320px;
-}
-
-#right-table2 {
-  width: 320px;
-  overflow: auto;
-}
-
-th,
-td {
-  height: 50px;
-  width: 80px;
-  line-height: 50px;
-  overflow: hidden;
+  table-layout: fixed;
   text-align: center;
 }
 
-th {
-  color: #1E304F;
-  background-color: #F3F8FF;
+thead th,
+tbody td {
+  // width: 50px;
 }
 
-td {
-  color: #384967;
-}
-
-tr:nth-of-type(odd) {
-  background: #E7F2FF;
-}
-
-/*可以美化一下滚动条*/
-#right-div2::-webkit-scrollbar {
-  /*滚动条整体样式*/
-  width: 4px;
-  height: 4px;
-}
-
-#right-div2::-webkit-scrollbar-thumb {
-  /*滚动条里面小方块*/
-  border-radius: 5px;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  background: rgba(0, 0, 0, 0.2);
-}
-
-#right-div2::-webkit-scrollbar-track {
-  /*滚动条里面轨道*/
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  border-radius: 0;
-  background: rgba(0, 0, 0, 0.1);
+table thead {
+  width: calc(100% - 1em);
 }
 
 </style>

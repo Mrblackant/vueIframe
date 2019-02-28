@@ -7,14 +7,111 @@
   <title>crmm</title>
   <style type="text/css">
   body {
-  	background-color: #ebf5fe;
+    background-color: #ebf5fe;
   }
+
   </style>
 </head>
 
-<body rightMargin="0" scroll="no" style="overflow:hidden">
+<body>
   <div id="app"></div>
   <!-- built files will be auto injected -->
 </body>
+<script type="text/javascript">
+// 默认绑定
+function fff() {
+  console.log(this.a)
+}
+var a = '我是默认绑定'
+// fff()
+// 隐式绑定
+function f2() {
+  console.log(this.b)
+}
+var b = '外边的B'
+var ff2 = {
+  b: '123',
+  f2: f2
+}
+// ff2.f2()
+// 多层调用链
+function f3() {
+  console.log(this.c)
+}
+
+var ff3 = {
+  c: 'ff3的c',
+  f3: f3
+}
+var ff4 = {
+  c: 'ff4的c',
+  ff3: ff3
+}
+// ff4.ff3.f3()
+// 显示调用 call apply
+var d = 'dddd'
+
+function fff4() {
+  console.log(this.d)
+}
+var fff5 = {
+  d: 'fff5的D'
+}
+// fff4.call(fff5)
+// 构造函数
+function gz(a) {
+  this.a = a
+}
+var ngz = new gz(3)
+// console.log(ngz.a)
+// 箭头函数
+var jt = '外边的 jt'
+var obj = {
+  jt: '里边的jt',
+  fun: function() {
+    var innerFun = () => {
+      console.log(this.jt)
+    }
+    innerFun()
+  }
+}
+var obj2 = {
+  jt: 'obj2 inner的aj'
+}
+// obj.fun()//里边的jt
+// obj.fun.call(obj2)//obj2 inner的aj
+// 闭包
+// 1、函数作为返回值
+function bb() {
+  var name = "dom"
+  return function() {
+    return name
+  }
+}
+
+for (var i = 0; i < 5; i++) {
+  (function(i) {
+    setTimeout(function() {
+      // console.log(i)
+    }, 100)
+  })(i)
+
+}
+// var sc=bb()
+// console.log(sc())
+
+// 2.函数作为参数
+var num = 15
+function ab(x) {
+  if (x > num) {
+    // console.log(x)
+  }
+}
+(function(f2) {
+  var num = 100
+  ab(30)
+}(ab)) //30 num取得是创建函数ab时作用域的num
+
+</script>
 
 </html>

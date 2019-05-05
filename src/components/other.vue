@@ -5,17 +5,17 @@
 </template>
 <script>
   // 函数节流
-// var canRun=true
-// window.onscroll=function(){
-// if (!canRun) {
-//   return
-// }
-// canRun=false
-// setTimeout(()=>{
-//   console.log('函数节流')
-// canRun=true
-// },300)
-// }
+var canRun=true
+window.onscroll=function(){
+if (!canRun) {
+  return
+}
+canRun=false
+setTimeout(()=>{
+  console.log('函数节流')
+canRun=true
+},300)
+}
 // 函数防抖
 var canRun2=false
 

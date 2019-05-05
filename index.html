@@ -102,6 +102,7 @@ for (var i = 0; i < 5; i++) {
 
 // 2.函数作为参数
 var num = 15
+
 function ab(x) {
   if (x > num) {
     // console.log(x)
@@ -111,6 +112,26 @@ function ab(x) {
   var num = 100
   ab(30)
 }(ab)) //30 num取得是创建函数ab时作用域的num
+
+// js变量提升
+// console.log(bd)
+var bd = 123
+
+function bd() {
+  alert(0)
+}
+// 
+var arr = [1, 2, 3, 4, 5]
+arr.sort(()=>{
+  return Math.random() - 0.5
+})
+// console.log(arr)
+
+// console.log(af)//undefined
+var af=0
+
+// console.log(af)//0
+
 
 </script>
 

@@ -51,7 +51,7 @@ arre.sort(function(x, y) {
   // return x-y//升序
   return y - x //降序
 })
-console.log(arre)
+// console.log(arre)
 // 2.冒泡排序
 
 function sortarr(arr) {
@@ -66,7 +66,37 @@ function sortarr(arr) {
   }
   return arr
 }
-console.log(sortarr(arre))
+// console.log(sortarr(arre))
+
+// some、every、find、filter、map、forEach
+var arr2 = [1, 8, 9, 0]
+let tempp = arr2.find((item, index) => {
+  return item > 2
+})
+// console.log(tempp)//8
+// reduce
+//扁平化数组
+var arr2 = [
+  [1, 2, 9, 3],
+  [4, 5],
+  [6, 7]
+];
+var new2 = arr2.reduce(function(pre, next, index) {
+  return pre.concat(next); //前数组拼接后数组 .concat()
+})
+// console.log(new2)
+
+// for in /for of
+var arr3 = [3, { name: 'lili' }]
+var obj = { age: 20, class: 12 }
+for (var item in arr3) {
+  // console.log(item)
+}
+for (var item of arr3) {
+  // console.log(item)
+}
+
+// js变量提升
 
 </script>
 <style type="text/css">

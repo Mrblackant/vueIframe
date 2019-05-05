@@ -12,14 +12,48 @@ var other = resolve => require(['@/components/other.vue'], resolve)
 var tthis = resolve => require(['@/components/tthis.vue'], resolve)
 var arrary = resolve => require(['@/components/arrary.vue'], resolve)
 var AllCom = resolve => require(['@/components/AllCom.vue'], resolve)
-
+var jicheng = resolve => require(['@/components/jicheng.vue'], resolve)
+var makeHtml = resolve => require(['@/components/makeHtml.vue'], resolve)
+var class6 = resolve => require(['@/components/class6.vue'], resolve)
+var moreTable = resolve => require(['@/components/moreTable.vue'], resolve)
+var realM = resolve => require(['@/components/realM.vue'], resolve)
+var definePropty = resolve => require(['@/components/definePropty.vue'], resolve)
+var changeRuleForm = resolve => require(['@/components/changeRuleForm.vue'], resolve)
 export const constantRouterMap = [{
     path: '/',
     component: HelloWorld
   },
   {
+    path: '/definePropty',
+    component: definePropty
+  },
+  {
+    path: '/changeRuleForm',
+    component: changeRuleForm
+  },
+  {
     path: '/promise',
     component: promise
+  },
+  {
+    path: '/realM',
+    component: realM
+  },
+  {
+    path: '/moreTable',
+    component: moreTable
+  },
+  {
+    path: '/class6',
+    component: class6
+  },
+  {
+    path: '/jicheng',
+    component: jicheng
+  },
+  {
+    path: '/makeHtml',
+    component: makeHtml
   }, {
     path: '/AllCom',
     component: AllCom

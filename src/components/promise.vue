@@ -12,14 +12,7 @@ export default {
 
   },
   methods: {
-    chane() {
-    },
-    leaveTab(activeName, oldActiveName) {
-      // do something
-      alert(activeName)
-      alert(oldActiveName)
-    },
-
+    chane() {}
   }
 }
 
@@ -30,7 +23,7 @@ let p4 = new Promise((resolve, reject) => {
   resolve('p44')
 })
 
-Promise.all([p1, p2, p3, p4]).then(data => {
+Promise.all([p1, p2, p4]).then(data => {
   // console.log(data)
 }, err => {
   // console.log(err)
@@ -44,6 +37,24 @@ Promise.race([p1, p2, p3, p4]).then(data => {
 
 })
 
+async function baseDemo() {
+  console.log('123')
+  let c = await ab()
+  console.log(c)
+  console.log('1234')
+
+}
+baseDemo()
+
+function ab() {
+  // return 'vd'
+  let p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('300毫秒后的事件')
+    }, 900)
+  })
+  return p
+}
 // 手写一个promise
 // function Promise(exector) {
 //   let _self = this
@@ -68,6 +79,5 @@ Promise.race([p1, p2, p3, p4]).then(data => {
 //   }
 //   exector(resolve, reject)
 // }
-
 
 </script>

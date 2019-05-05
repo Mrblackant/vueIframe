@@ -21,18 +21,18 @@
     </div>
   </div>
 </template>
-<script>
-  var canRun = true;
- window.onscroll= function(){
-    if(!canRun){
-        // 判断是否已空闲，如果在执行中，则直接return
-        return;
-    }
-    canRun = false;
-    setTimeout(function(){
-        console.log("函数节流");
-        canRun = true;
-    }, 300);
+<script type="text/ecmascript-6">
+var canRun = true;
+window.onscroll = function() {
+  if (!canRun) {
+    // 判断是否已空闲，如果在执行中，则直接return
+    return;
+  }
+  canRun = false;
+  setTimeout(function() {
+    console.log("函数节流");
+    canRun = true;
+  }, 300);
 };
 // window.onscroll  = function () {
 //     if(timer){
@@ -46,7 +46,7 @@
 //         timer = undefined;
 //     },200)
 // }
-  export default {
+export default {
   data() {
     return {
       clearTime: false,
@@ -58,9 +58,10 @@
 
   }
 }
-var ab=['a','c','g']
-ab.splice(0,1)
+var ab = ['a', 'c', 'g']
+ab.splice(0, 1)
 console.log(ab)
+
 function Person(name, age, job) {
   this.name = name;
   this.age = age;
@@ -82,8 +83,39 @@ var p1 = new P2()
 var p3 = new P2()
 
 // console.log(p1.sayName()==p3.sayName())
-var A=P2.prototype
-console.log(P2.prototype==A)
+var A = P2.prototype
+console.log(P2.prototype == A)
+
+console.log("-----------------原型继承------------------")
+
+function parentFun() {
+  this.name = '这里是父亲'
+}
+
+function childFun() {}
+childFun.prototype = new parentFun()
+let cnew = new childFun()
+console.log(cnew.name)
+console.log("-----------------call+构造函数继承------------------")
+
+function callChild() {
+  parentFun.call(this)
+}
+let callNew = new callChild()
+console.log(callNew.name)
+console.log("-----------------原型继承------------------")
+
+function yuxing(o) {
+  function f() {}
+  f.prototype = o
+  return new f()
+}
+let objjj = {
+  name: 'lili'
+}
+let co = yuxing(objjj)
+console.log(co.name)
+
 </script>
 <style type="text/css">
 .wapper {

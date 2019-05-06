@@ -1,0 +1,322 @@
+// 资费调整的新的 改版的css，字体、表单等,基本上修改的都是elementui自带的样式
+$commonTable_header_color:#daf5fa; //统一的table的标题行的背景颜色,淡蓝色
+$commonTable_row_color:#f7fcff; //统一的table row的背景颜色,浅蓝色
+$commonFont_weight:400; //统一的字体加粗
+$commomBorder_color:#D8DCE6; //统一的边框颜色，浅灰色
+$commonFs_color:#85888E; //字体的颜色，灰色
+$commonFs_black_color:#303133; //字体的颜色，黑色
+$commonFs_red_color:#F56C6C; //字体颜色 微红
+$commonFs_blue_color:#2196F3; //字体颜色 蓝色
+$common_dia_border_color:#E4E7ED; //dialog弹窗的边框色 灰色
+$common_dia_title_color:#1E88E5; //dialog弹窗的标题行颜色 蓝色
+
+// ------------------elementUi的调整------------------
+//form表单选项的宽度
+.el-form-item__content div:first-child {
+  &[class^="el"] {
+    width: 220px;
+  }
+
+
+}
+
+.el-tabs__content,
+.el-tabs__nav .el-tabs__item {
+  background-color: #F1F6F9 !important;
+}
+
+.line_height_14 {
+  .el-form-item__label {
+    line-height: 14px;
+  }
+}
+
+.el-form {
+  .el-form-item {
+    margin-right: 55px !important;
+  }
+
+  .el-form-item__label {
+    //表单的小标头label
+    font-weight: $commonFont_weight !important;
+    font-size: 14px !important;
+    color: $commonFs_black_color !important;
+  }
+}
+
+.lx_table_has_children {
+  //统一的table多级表头的样式
+  border-bottom: 1px solid $commomBorder_color !important;
+}
+
+// 统一写的table(带表单功能)
+.common_table_set {
+  .el-input {
+    .el-input__inner {
+      // width: 60px!important;
+      height: 22px !important;
+    }
+  }
+
+  .el-select {
+    .el-input__inner {
+      height: auto !important;
+    }
+  }
+}
+
+.el-table {
+  //table表单
+  font-size: 12px !important;
+  font-weight: $commonFont_weight !important;
+  border: 1px solid $commomBorder_color !important;
+  // border-top: 1.5px solid $commomBorder_color !important;
+  // border-left: 2px solid $commomBorder_color !important;
+
+  th {
+    padding: 6px 0 !important;
+  }
+
+  .cell {
+    line-height: 18px !important;
+  }
+
+  thead th,
+  thead.is-group th {
+    background: none !important;
+    background: $commonTable_header_color !important;
+  }
+
+  .el-table__header-wrapper {
+    thead {
+      th {
+        background: none !important;
+        background: $commonTable_header_color !important;
+      }
+
+    }
+
+  }
+
+  .el-table__row {
+    background: none !important;
+    background: #fff !important;
+
+    td {
+      padding: 6px 0 !important;
+
+    }
+  }
+}
+
+// elementUI弹窗的样式
+.el-dialog__wrapper {
+  .el-dialog {
+    border-radius: 10px;
+  }
+
+  .el-dialog__body {
+    padding: 24px 20px;
+  }
+
+  .el-dialog__header {
+    * {
+      color: $common_dia_title_color !important;
+    }
+
+    .el-dialog__headerbtn {
+      top: 14px;
+    }
+
+    padding: 12px 20px 8px;
+    font-size: 16px;
+    font-weight:bold;
+    border-bottom: 2px solid $common_dia_border_color;
+  }
+}
+
+//------------------ elementUi的调整 end------------------
+
+// ------------------资费页面的公用css------------------
+
+@mixin lx_new_common_font_size {
+  //统一的字体样式调整
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: $commonFs_black_color !important;
+}
+
+// 上方申请信息的表单的css
+.lx_for_info_row {
+  border: 1px solid $commomBorder_color;
+  border-right: none;
+  font-weight: 400;
+  font-size: 12px;
+  color: $commonFs_color;
+}
+
+// table列表里可点击的链接样式
+.lx_table_can_click {
+  color: $commonFs_blue_color;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+// table列表里的小mini按钮
+.lx_table_inner_mini_btn {
+  // width: 40px;
+  // height: 20px;
+  padding: 4px 7px;
+}
+
+//table里的错误输入框的样式
+.hover-row .badInp input {
+  border-color: red;
+}
+
+.badInp input {
+  border-color: red;
+}
+
+.el-table .fontRed {
+  color: $commonFs_red_color;
+}
+
+
+.lineThoung {
+  //中划线
+  text-decoration: line-through;
+  // text-decoration-color: red;
+}
+
+.lx_block_bg_change {
+  background-color: #26c6da;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  padding: 0 18px 0 26px;
+  height: 32px;
+  line-height: 32px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+// ------------------资费页面的公用css end------------------
+.lx_make_margin {
+  label {
+    margin-left: 8px;
+  }
+}
+
+// ------------------资费编辑页面的css (feesReedit.vue)------------------
+
+// ------------------资费编辑页面的css end------------------
+
+.lx_show_old {
+  text-decoration: line-through;
+}
+
+.lx_type_no_use {
+  text-decoration: line-through;
+
+}
+
+.lx_type_new_add {
+  color: $commonFs_red_color;
+}
+
+.fz_fy_qd_dialog_inner {
+  .lx_flex {
+    .width100 {
+      width: 60% !important;
+    }
+  }
+
+  .lx_no_label {
+    .el-form-item__label {
+      color: #fff !important;
+
+    }
+  }
+
+  // .lx_inner_select{
+  //     .el-input{
+  //     width: 100px!important;
+
+  //     }
+  // }
+}
+
+// 资费编辑原生的table
+.lx_set_table_wapper {
+
+  table tr th,
+  table tr td {
+    border-bottom: 1px solid #D8DCE6;
+    padding: 5px 0;
+  }
+
+  table.lx_table {
+    width: 100%;
+    font-size: 12px;
+    min-height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid #D8DCE6;
+
+    .lx_table_tb {
+      background-color: #fff;
+    }
+
+    .lx_table_h {
+      color: #85888E;
+      background-color: #daf5fa;
+    }
+
+    .lx_table_index {
+      // width: 10%;
+
+      .lx_zh {
+        width: 10%;
+        // width: 100px;
+      }
+    }
+
+    .lx_table_tr {
+      color: #606266;
+      border-bottom: 1px solid #D8DCE6;
+    }
+  }
+}
+
+// 原生的table
+
+// 资费编辑页面的tabs
+.lx_country_tabs {
+  .el-tabs__item {
+    border-bottom: 1px solid #e4e7ed !important;
+    background-color: #fff !important;
+  }
+
+  .el-tabs__item.is-active {
+    border-bottom-color: #fff !important;
+  }
+
+  .el-tabs__nav-wrap {
+    background-color: #fff !important;
+
+  }
+}
+
+// 合计列 字体变蓝色
+.lx_count_fees {
+  color: blue;
+}
+
+// 拒签扣款、不录取扣款、送入学申请资料前委托人要求解约扣款、已送交入学申请材料，尚未得到结果前解约扣款 的数字颜色变成红色
+.lx_color_red,
+.lx_color_red * {
+  color: red;
+}

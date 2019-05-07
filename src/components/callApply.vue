@@ -3,18 +3,18 @@
     <el-form class="lx_caseForm_wapper" ref="caseForm" :model="caseForm" label-width="80px" size="mini" :inline="true">
       <el-form-item label="院校名称">
         <el-row class="lx_college_wapper lx_input_and_text">
-          <el-tooltip class="item" effect="dark" :disabled="caseForm.collegeName.length==0" :content="caseForm.collegeName" placement="top-start">
-            <el-input v-model="caseForm.collegeName"></el-input>
+          <el-tooltip class="item" effect="dark" :disabled="tempData.collegeName.length==0" :content="tempData.collegeName" placement="top-start">
+            <el-input v-model="tempData.collegeName"></el-input>
           </el-tooltip>
           <!-- 文字按钮 -->
           <span class="lx_text_button_wapper">
             <el-button type="text" @click="diaOpen('college')">选择</el-button>
-            <el-button type="text">清除</el-button>
+            <el-button type="text" @click="clearData('college')">清除</el-button>
           </span>
         </el-row>
       </el-form-item>
       <el-form-item label="案例状态">
-        <el-select v-model="caseForm.region" placeholder="请选择">
+        <el-select v-model="caseForm.status" placeholder="请选择">
           <template v-for="item in baseDataOptions.caseStatusOpts">
             <el-option :key="item.name+item.id" :label="item.name" :value="item.id"></el-option>
           </template>
@@ -22,13 +22,13 @@
       </el-form-item>
       <el-form-item label="申请专业">
         <el-row class="lx_input_and_text">
-          <el-tooltip class="item" effect="dark" :disabled="caseForm.collegeName.length==0" :content="caseForm.collegeName" placement="top-start">
-            <el-input v-model="caseForm.name"></el-input>
+          <el-tooltip class="item" effect="dark" :disabled="tempData.majorName.length==0" :content="tempData.majorName" placement="top-start">
+            <el-input v-model="tempData.majorName"></el-input>
           </el-tooltip>
           <!-- 文字按钮 -->
           <span class="lx_text_button_wapper">
-            <el-button type="text">选择</el-button>
-            <el-button type="text">清除</el-button>
+            <el-button type="text" @click="diaOpen('major')">选择</el-button>
+            <el-button type="text" @click="clearData('major')">清除</el-button>
           </span>
         </el-row>
       </el-form-item>
@@ -45,7 +45,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="申请学历">
-        <el-select v-model="caseForm.name" placeholder="请选择">
+        <el-select v-model="caseForm.specialtyId" placeholder="请选择">
           <template v-for="item in baseDataOptions.applicationEduOpts">
             <el-option :key="item.name+item.id" :label="item.name" :value="item.id"></el-option>
           </template>
@@ -107,7 +107,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="创建日期">
-        <el-date-picker v-model="caseForm.cxDate" type="daterange" range-separator="至" value-format="timestamp" start-placeholder="开始日期" end-placeholder="结束日期">
+        <el-date-picker v-model="caseForm.created" type="daterange" range-separator="至" value-format="timestamp" start-placeholder="开始日期" end-placeholder="结束日期">
         </el-date-picker>
       </el-form-item>
       <el-form-item label="顾问姓名">
@@ -121,7 +121,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="审批通过时间" class="line_height_14">
-        <el-date-picker v-model="caseForm.name" type="daterange" range-separator="至" value-format="timestamp" start-placeholder="开始日期" end-placeholder="结束日期">
+        <el-date-picker v-model="caseForm.reviewed" type="daterange" range-separator="至" value-format="timestamp" start-placeholder="开始日期" end-placeholder="结束日期">
         </el-date-picker>
       </el-form-item>
     </el-form>
@@ -133,18 +133,29 @@
     <!-- 查询结果table -->
     <el-table class="lx_table_wapper" :data="tableData" border style="width: 100%">
       <template v-for="item in tableDataInit">
-        <el-table-column :key="item.propsCode+item.labelNmae" :prop="item.propsCode" :label="item.labelNmae">
+        <el-table-column v-if="item.type&&item.type==='jumpLink'" :key="item.propsCode+item.labelNmae" :prop="item.propsCode" :label="item.labelNmae">
+          <template slot-scope="scope">
+            <span class="lx_inner_table_link" @click="jumpUrl(scope)">
+              {{scope.row.see}}
+            </span>
+          </template>
+        </el-table-column>
+        <el-table-column v-else :key="item.propsCode+item.labelNmae" :prop="item.propsCode" :label="item.labelNmae">
         </el-table-column>
       </template>
     </el-table>
     <!-- 选择院校弹窗 -->
     <choseCollege-dia :show.sync="collegeShowDia" @getSchool="getSchool"></choseCollege-dia>
+    <!-- 选择专业弹窗 -->
+    <choseMajor-dia :show.sync="majorShowDia" @getMajor="getMajor"></choseMajor-dia>
   </div>
 </template>
 <script>
 import "@/styles/callApply.scss"
 import "@/styles/feesChange.scss"
+// 选择院校弹窗
 import choseCollegeDia from "@/components/anliku/choseCollegeDia"
+// 选择专业弹窗
 import choseMajorDia from "@/components/anliku/choseMajorDia"
 export default {
   components: {
@@ -154,10 +165,22 @@ export default {
   data() {
     return {
       collegeShowDia: false, //控制院校选择的弹窗
-      tableData: [], //table查询信息
+      majorShowDia: false, //控制专业选择的弹窗
+      tableData: [{
+        add: '减肥呢ss',
+        see: '假结婚'
+      }, {
+        add: '减肥呢1',
+        see: '假结婚'
+      }], //table查询信息
+      // 临时数据，作为回显等使用，不提交
+      tempData: {
+        collegeName: '', //院校名称
+        majorName: '', //专业名称
+      },
       tableDataInit: [ //动态渲染table的列表
         {
-          propsCode: '',
+          propsCode: 'add',
           labelNmae: '创建时间'
         },
         {
@@ -166,10 +189,11 @@ export default {
         },
         {
           propsCode: '',
-          labelNmae: '案例名称'
+          labelNmae: '案例名称',
+          type: 'jumpLink'
         },
         {
-          propsCode: '',
+          propsCode: 'see',
           labelNmae: '学生姓名'
         },
         {
@@ -220,7 +244,8 @@ export default {
           labelNmae: '操作'
         }
       ],
-      baseDataOptions: { //全局需要初始化的数据
+      //全局需要初始化的数据
+      baseDataOptions: {
         //案例状态 select初始数据
         caseStatusOpts: [{
           name: '成功',
@@ -254,19 +279,19 @@ export default {
 
       },
       caseForm: { //查询form
-        collegeName: '', //院校名称
-        //,案例状态  
-        //,申请专业
+        collegeId: '', //院校id
+        status: '', //案例状态  
+        lxType: '', //申请专业
         stuName: '', //学生姓名       
         caseName: '', //案例名称 
         isCaseFamous: '', //名校案例
-        // ,申请学历
+        specialtyId: '', // 申请学历
         conNo: '', //合同号
         signDate: [], //签约日期
         education: '', //目前学历
         countryCode: '', //申请国家
         admitResult: '', //是否录取
-        cxDate: '', //成行日期
+        cxDate: [], //成行日期
         graduateSchool: '', //毕业学校
         languageInfo: '', //语言情况
         localSpecialty: '', //国内专业
@@ -274,13 +299,11 @@ export default {
         parentsWorkIncome: '', //收入情况
         guaranteesInfo: '', //担保金情况
         companyId: '', //所属公司
-        //,创建日期
+        created: [], //创建日期
         consultantName: '', //顾问姓名
         caseType: '', //案例类型
-        // ,审批通过时间
-
+        reviewed: [], // 审批通过时间
       }
-
     }
 
   },
@@ -288,17 +311,47 @@ export default {
     onSubmit() { //查询
       console.log(this.caseForm)
     },
+    jumpUrl(data) { //查询信息内的跳转
+      console.log(data)
+    },
     diaOpen(type) { //院校、专业弹窗的打开控制
       // type: college院校,major专业
       console.log(type)
       if (type === 'college') {
         this.collegeShowDia = true
+      } else if (type === 'major') {
+        this.majorShowDia = true
       }
+    },
+    clearData(type) { //清除数据
+      // type: college院校,major专业
+      console.log(type)
+      if (type === 'college') {
+        // 清除 选择的院校名称
+        this.tempData.collegeName = ''
+        // 清除 选择的院校id
+        this.caseForm.collegeId = ''
+      } else if (type === 'major') {
+        // 清除 选择的专业
+        this.tempData.majorName = ''
+        this.caseForm.lxType = ''
+      }
+
     },
     getSchool(data) { //获取到学校的数据
       console.log(data)
-      this.caseForm.collegeName = data.row.address
+      // 回显名称
+      this.tempData.collegeName = data.row.address
+      // 绑定id
+      this.caseForm.collegeId = data.row.address
 
+    },
+    getMajor(data) { //获取到选择专业的数据
+      console.log(data)
+      // 回显名称
+      this.tempData.majorName = data.row.address
+      // 绑定id
+      this.caseForm.lxType = data.row.address
     }
   },
   watch: {

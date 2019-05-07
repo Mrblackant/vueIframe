@@ -32,7 +32,7 @@
         </el-table-column>
         <el-table-column prop="address" label="等级">
           <template slot-scope="scope">
-            <el-button class="lx_inner_btn" type="text" @click="chose(scope)">选择</el-button>
+            <el-button class="lx_inner_btn" type="text" @click="chose(scope)" size="mini">选择</el-button>
           </template>
         </el-table-column>
       </el-table>

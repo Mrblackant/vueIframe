@@ -1,11 +1,11 @@
 caseForm: {
   collegeName: '', //院校名称
-  //,案例状态  
-  //,申请专业
+  status: '', //,案例状态  
+  lxType: '', //,申请专业
   stuName: '', //学生姓名				
   caseName: '', //案例名称 
   isCaseFamous: '', //名校案例
-  // ,申请学历
+  specialtyId: '', // ,申请学历
   conNo: '', //合同号
   signDate: '', //签约日期
   education: '', //目前学历
@@ -19,9 +19,8 @@ caseForm: {
   parentsWorkIncome: '', //收入情况
   guaranteesInfo: '', //担保金情况
   companyId: '', //所属公司
-  //,创建日期
+  created: '', //,创建日期
   consultantName: '', //顾问姓名
   caseType: '', //案例类型
   // ,审批通过时间
-
 }

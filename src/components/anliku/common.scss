@@ -1,0 +1,17 @@
+// 选择学校、专业弹窗，公用的css
+.lx_chose_college_wapper,
+.lx_chose_major_dia {
+	
+
+
+  .lx_inner_btn {
+    // padding:5px;
+    width: 100%;
+  }
+
+  .el-dialog__body {
+    max-height: 600px;
+    overflow: auto;
+  }
+
+}

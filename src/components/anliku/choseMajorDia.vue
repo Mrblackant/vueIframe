@@ -35,6 +35,7 @@
   </div>
 </template>
 <script>
+import "./common.scss"
 export default {
   props: {
     show: {
@@ -54,9 +55,9 @@ export default {
       },
       tableData: [{
         address: '哈哈哈'
-      },{
+      }, {
         address: '哈哈哈'
-      },{
+      }, {
         address: '哈哈哈'
       }], //查询结果
       majorForm: { //专业查询表单数据
@@ -86,4 +87,26 @@ export default {
 
 </script>
 <style lang="scss" rel="stylesheet/scss">
+// 专业选择弹窗
+.lx_chose_major_dia {
+  .lx_inner_btn {
+    width: 100%;
+  }
+
+  .el-dialog__body {
+    max-height: 600px;
+    overflow: auto;
+  }
+
+  .lx_table_wapper {
+    margin-top: 27px;
+
+    .lx_inner_table_link {
+      color: #299ffa;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
 </style>

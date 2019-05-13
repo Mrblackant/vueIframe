@@ -4,27 +4,7 @@
   white-space: nowrap;
 }
 
-.lx_caseForm_wapper {
-  .lx_input_and_text {
-    position: relative;
 
-    .el-input__inner {
-      padding-right: 72px;
-    }
-
-    .lx_text_button_wapper {
-      position: absolute;
-      right: 7px;
-      top: 0;
-
-      span {
-        text-decoration: underline;
-      }
-    }
-  }
-
-
-}
 
 .lx_table_wapper {
   margin-top: 27px;
@@ -33,59 +13,5 @@
     color: #299ffa;
     text-decoration: underline;
     cursor: pointer;
-  }
-}
-
-.lx_chose_college_wapper {
-  .lx_inner_btn {
-    // padding:5px;
-    width: 100%;
-  }
-
-  .el-dialog__body {
-    max-height: 600px;
-    overflow: auto;
-  }
-
-  // 选择院校弹窗
-  .lx_form_name {
-    .el-input {
-      .el-input__inner {
-        width: 304px;
-
-      }
-    }
-
-    .el-button {
-      position: relative;
-      right: -88px;
-    }
-
-
-  }
-
-  .lx_zm_wapper {
-    span {
-      display: inline-block;
-      // color: #299ffa;
-      margin-right: 3px;
-      padding: 0 4px;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-  }
-}
-
-// 专业选择弹窗
-.lx_chose_major_wapper {}
-
-.lx_chose_major_dia {
-  .lx_inner_btn {
-    width: 100%;
-  }
-
-  .el-dialog__body {
-    max-height: 600px;
-    overflow: auto;
   }
 }

@@ -320,3 +320,45 @@ $common_dia_title_color:#1E88E5; //dialog弹窗的标题行颜色 蓝色
 .lx_color_red * {
   color: red;
 }
+
+$commomBorder_fe_color:#D8DCE5; //统一分割线的边框颜色，浅灰色
+
+
+.lx_for_line {
+  //资费调整的分割线
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 13px;
+  margin: 17px 0;
+
+  .lx_for_line_inner {
+    border-bottom: 2px dashed $commomBorder_fe_color;
+
+  }
+}
+
+// 案例库、案例编辑公用的css
+
+.lx_input_and_text {
+  position: relative;
+
+  .el-input__inner {
+    padding-right: 72px;
+  }
+
+  .lx_text_button_wapper {
+    position: absolute;
+    right: 7px;
+    top: 0;
+
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+
+.lx_no_control_wid {
+  .el-form-item__content div:first-child[class^="el"] {
+    width: 100% !important;
+  }
+}

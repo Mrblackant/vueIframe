@@ -40,6 +40,8 @@
   </div>
 </template>
 <script>
+import "./common.scss"
+
 // 生成26个英文字母
 function generateBig() {
   var str = [];
@@ -108,6 +110,36 @@ export default {
 
 </script>
 <style lang="scss" rel="stylesheet/scss">
-.lx_chose_college_wapper {}
+// 选择院校弹窗
+.lx_chose_college_wapper {
+  .lx_form_name {
+    .el-input {
+      .el-input__inner {
+        width: 304px;
+
+      }
+    }
+
+    .el-button {
+      position: relative;
+      right: -88px;
+    }
+
+
+  }
+
+  .lx_zm_wapper {
+    span {
+      display: inline-block;
+      // color: #299ffa;
+      margin-right: 3px;
+      padding: 0 4px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+
+}
 
 </style>

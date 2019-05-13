@@ -1,0 +1,108 @@
+@import './feesChange.scss';
+
+
+.lx_anli_reedit_wapper {
+  @include lx_new_common_font_size;
+
+  .lx_case_info {
+    padding-left: 25px;
+
+    .el-col {
+      display: inline-block;
+    }
+  }
+
+  .lx_casetpes_tips {
+    color: $commonFs_red_color;
+  }
+
+  .lx_anli_name {
+    // width: 57.6%;
+
+    // .el-form-item__content {
+    //   width: 90%;
+
+    //   .el-input {
+    //     width: 100%;
+    //   }
+    // }
+  }
+
+  .lx_anli_type_wapper {
+    .el-form-item__content {
+      margin-right: -46px;
+
+    }
+  }
+
+  .lx_form_tip {
+    display: inline-block;
+    color: $commonFs_red_color;
+  }
+
+  .lx_inner_title_span {
+    color: #2196F3;
+    display: inline-block;
+    padding-left: 28px;
+    margin-bottom: 10px;
+  }
+
+  .lx_inner_form_line {
+    border-bottom: 1px solid #E4E7ED;
+    margin-bottom: 10px;
+  }
+
+  .lx_inner_form_textarea {
+    div:first-child[class^="el"] {
+      width: 100%;
+    }
+
+    .lx_inner_row {
+      margin-right: 55px;
+    }
+
+
+
+    .lx_sign_form_item {
+      .el-textarea__inner {
+        height: 104px;
+      }
+    }
+  }
+
+  .xx_tips {
+    color: $commonFs_red_color;
+    padding-left: 25px;
+    margin-bottom: 10px;
+  }
+
+  .lx_xx_btn {
+    margin-left: 20px;
+    margin-top: 16px;
+  }
+
+  .lx_more_area_wapper {
+    .lx_inner_row {
+      .el-form-item__content {
+        margin-right: 55px;
+
+      }
+    }
+
+    textarea {
+      height: 70px;
+    }
+  }
+
+  .lx_information_wapper {
+    .lx_invate_wapper {
+      .lx_inner_line {
+        // width: auto;
+      }
+    }
+  }
+
+  .lx_creat_wapper {
+    margin-top: 10px;
+  }
+}

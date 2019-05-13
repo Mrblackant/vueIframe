@@ -19,6 +19,7 @@ var moreTable = resolve => require(['@/components/moreTable.vue'], resolve)
 var realM = resolve => require(['@/components/realM.vue'], resolve)
 var definePropty = resolve => require(['@/components/definePropty.vue'], resolve)
 var changeRuleForm = resolve => require(['@/components/changeRuleForm.vue'], resolve)
+var anlikuReedit = resolve => require(['@/components/anlikuReedit.vue'], resolve)
 export const constantRouterMap = [{
     path: '/',
     component: HelloWorld
@@ -30,6 +31,10 @@ export const constantRouterMap = [{
   {
     path: '/changeRuleForm',
     component: changeRuleForm
+  },
+  {
+    path: '/anlikuReedit',
+    component: anlikuReedit
   },
   {
     path: '/promise',

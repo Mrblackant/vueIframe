@@ -1,0 +1,156 @@
+// 首页相关
+.app_wapper {
+  font-size: 0.30rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.app_index_wapper {
+  padding-top: 3.00rem;
+  background-image: url($indexBk);
+  background-color: $commonLightColor;
+
+}
+
+.app_chose_wapper {
+  width: 6.80rem;
+  height: 8.40rem;
+  // border: 1px solid red;
+  margin: 0 auto;
+  background-image: url($indexCard);
+  padding-top: 2.01rem;
+  box-sizing: border-box;
+}
+
+.app_logo_wapper {
+  width: 2.38rem;
+  height: 0.73rem;
+  background-image: url($indexlogo);
+
+}
+
+.app_title {
+  font-weight: 400;
+  margin: 0.55rem 0 0.57rem;
+}
+
+.app_like_btn {
+  width: 2.96rem;
+  height: 0.72rem;
+  border: 1px solid #B9B9B9;
+  line-height: 0.72rem;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 0.44rem;
+  color: $commonFontColor;
+  font-size: 0.26rem;
+
+}
+
+// 首页相关end
+// 登录相关
+.app_login_wapper {
+  padding-top: 0.22rem;
+  background-image: url($loginBk);
+  background-color: $commonLightColor;
+}
+
+.app_login_card_wapper {
+  // box-sizing: border-box;
+  // padding: 0 0.61rem;
+}
+
+.app_login_input_wapper {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 0.61rem;
+  position: relative;
+
+  .app_inp_second {
+    // display: inline-block;
+    margin: 0.46rem 0 0.81rem;
+  }
+
+  .app_btn_login {
+    color: #fff;
+    width: 5.48rem;
+    height: 0.80rem;
+    line-height: 0.80rem;
+  }
+
+  .app_gery_color {
+    margin-top: 0.20rem;
+    font-size: 0.22rem;
+    text-align: center;
+    color: $commonFontGery;
+  }
+
+  .app_tips {
+    text-align: right;
+    font-size: 0.22rem;
+    color: $commonFontBlue;
+    margin-bottom: 0.81rem;
+    margin-top: -0.73rem;
+  }
+
+  .app_tx_color {
+    margin-top: 0.20rem;
+    font-size: 0.22rem;
+    color: $commonFontBlue;
+    text-align: center;
+    text-decoration: underline;
+  }
+}
+
+// 登录相关end
+// 注册相关
+.app_regist_wapper {
+  width: 6.70rem;
+  height: 6.80rem;
+  background: #fff;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0.57rem;
+  margin-top: 1.2rem;
+  box-shadow: 0px 3px 14px 1px rgba(20, 63, 95, 0.4);
+
+  .app_inp {
+    width: 100%;
+    margin-bottom: 0.46rem;
+  }
+
+  .app_temp_wapper {
+    width: 100%;
+    position: relative;
+  }
+
+  .app_btn_register {
+    color: #fff;
+    width: 5.48rem;
+    height: 0.80rem;
+    line-height: 0.80rem;
+    margin-top: 0.2rem;
+  }
+
+  .app_get_code {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.76rem;
+    height: .54rem;
+    text-align: center;
+    font-size: .26rem;
+    font-weight: 400;
+    color: #fff;
+    line-height: .54rem;
+    display: inline-block;
+    // background: $btnConfirmColor;
+    border-radius: 7px;
+    box-shadow: 0px 5px 10px 0px rgba(64, 149, 227, 0.3);
+  }
+}
+
+// 注册相关end

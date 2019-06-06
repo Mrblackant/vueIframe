@@ -1,0 +1,137 @@
+@import "./allImgs.scss";
+// 全局变量
+$baseColor:#397DB0; //全局色调
+$btnConfirmColor:#397DB0; //确认按钮蓝色
+$redColor:#df514e; //红色
+$commonFontColor:#3C4F5E; //字体颜色 黑色
+$commonFontSize:0.26rem; //字体大小
+$commonCardBk:#DDF0FF; //列表的背景色 淡蓝色
+$commonFontBlue:#397DB0; //列表内突出文字 淡蓝色
+$commonGrey:#8C8C8C; //灰色背景
+$commonTitleColor:#4CA2E2; //列表页面上的title 蓝色
+$commonFontGery:#939393; //淡灰色字体颜色
+$commonLightColor:#89C8F6; //淡蓝色背景
+
+*,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+// body {
+//   font-size: $commonFontSize;
+// }
+
+// flexb布局
+.app_flex {
+  display: -webkit-box;
+  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;
+  /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;
+  /* 混合版本语法: IE 10 */
+  display: -webkit-flex;
+  /* 新版本语法: Chrome 21+ */
+  display: flex;
+  /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+
+.app_flex_der {
+  //竖直垂直居中
+  -webkit-box-align: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.app_flex_row_bettwen {
+  // 水平两端居中
+  -webkit-box-pack: space-between;
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.app_flex_row_right {
+  // 水平末端对齐
+  -webkit-box-pack: flex-end;
+  -moz-justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.app_flex_row_center {
+  //水平居中对齐
+  -webkit-box-pack: center;
+  -moz-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.app_allow_wrap {
+  //允许换行
+  flex-wrap: wrap;
+}
+
+.app_shu {
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+// 背景图完整显示
+.bck_contain {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+// 背景图cover显示
+.bck_cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+// 背景图100%显示
+.bck_all {
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+// 输入框
+.app_inp {
+  outline: none;
+  border: none;
+  background: none;
+  border-bottom: 1px solid #E5E5E5;
+  font-size: 0.26rem;
+  padding-bottom: 0.28rem;
+}
+
+.app_btn {
+  background: none;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.28rem;
+  background-color: $btnConfirmColor;
+
+}
+
+.app_btn[disabled] {
+  background-color: #CDCDCD;
+}
+
+// 禁用btn
+.app_btn_no {
+  background-color: #CDCDCD;
+}
+
+// 可用btn
+.app_btn_confirm {
+  background-color: $btnConfirmColor;
+}

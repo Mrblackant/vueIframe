@@ -1,0 +1,215 @@
+// 合作方首页
+.app_partner_wapper {
+  background-image: url($partyIndex);
+  background-color: #89C8F6;
+  // position: relative;
+  padding-top: 2.15rem;
+
+  .app_btns_wapper {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0.40rem;
+
+    .app_box {
+      width: 3.17rem;
+      height: 3.82rem;
+      background: #fff;
+      box-shadow: 0px 3px 14px 1px rgba(20, 63, 95, 0.4);
+      opacity: 0.9;
+      background-size: 1.18rem 1.01rem;
+      background-position: 1.00rem 1.03rem;
+      background-repeat: no-repeat;
+      text-align: center;
+      color: $commonFontBlue;
+      box-sizing: border-box;
+      padding-top: 2.62rem;
+    }
+
+    .app_box_fir {
+      background-image: url($partyIndexleft);
+
+    }
+
+    .app_box_sec {
+      background-image: url($partyIndexright);
+
+    }
+  }
+
+  .app_footer {
+    width: 6.19rem;
+    height: 2.93rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    background-image: url($partyIndexfz);
+
+  }
+
+  .app_my_content {
+    width: 3.90rem;
+    margin: 0 auto;
+    margin-top: 1.17rem;
+
+    p {
+      width: 90%;
+      font-size: 0.30rem;
+      text-align: center;
+    }
+
+  }
+}
+
+// 合作方首页 end
+
+// 合作方-表单页面
+
+.app_parnter_wpper {
+  background-image: url($partyIndex);
+  background-color: $baseColor;
+  padding-top: 0.27rem;
+  box-sizing: border-box;
+  padding-bottom: 0.60rem;
+
+  .app_form_wapper {
+    width: 6.70rem;
+    background: #fff;
+    margin: 0 auto;
+    min-height: 0.30rem;
+    box-sizing: border-box;
+    padding: 0.56rem;
+  }
+}
+
+.app_form {
+  color: $commonFontColor;
+  font-size: 0.26rem;
+
+  .app_form_item {
+    width: 100%;
+    padding-bottom: 0.28rem;
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 0.46rem;
+
+    .app_form_left {
+      i {
+        position: relative;
+        top: 3px;
+        color: $redColor;
+      }
+
+      .app_form_label {}
+    }
+
+    .app_form_right {
+      width: 67%;
+      text-align: right;
+
+      input,
+      select,
+      picker {
+        width: 89%;
+        text-align: right;
+      }
+
+      i {
+        color: #6C8EA9;
+      }
+    }
+  }
+
+  .app_btn_area {
+    .app_btn {
+      width: 100%;
+      color: #fff;
+      padding: 0.26rem 0;
+    }
+  }
+
+  .app_bottom_tips {
+    text-align: center;
+    font-size: 0.24rem;
+    margin-top: 0.10rem;
+    color: #939393;
+  }
+
+  .app_bottom_link {
+    color: #397DB0;
+    text-decoration: underline;
+  }
+}
+
+// 合作方-表单页面 end
+
+// 合作方详情页面
+.app_partner_detail_wapper {
+  background-image: url($partyIndex);
+  background-color: #fff;
+  overflow: auto;
+  box-sizing: border-box;
+  padding-bottom: 1rem;
+
+  .app_btn_detail {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    padding: 0.36rem 0;
+    border-radius: 0;
+  }
+
+  .app_item_wapper {
+    padding: 0.66rem 0.73rem;
+    box-sizing: border-box;
+
+    p {
+      font-size: 0.26rem;
+      color: $commonFontColor;
+      margin-bottom: 0.41rem;
+    }
+  }
+
+  .app_qx_wapper {
+    font-size: 0.26rem;
+    padding: 0.66rem 0.73rem;
+    padding-top: 0.38rem;
+    box-sizing: border-box;
+    border-top: 1px solid #E2E2E2;
+
+    p {
+      margin-top: 0.41rem;
+      color: $commonFontColor;
+
+    }
+
+
+  }
+
+  .app_my_content_d {
+    color: #3C4F5E;
+    width: 100%;
+    // margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0.90rem 0.40rem;
+
+    p {}
+
+    textarea {
+      border: 1px solid #E5E5E5;
+      width: 100%;
+      outline: none;
+      margin: 0.30rem 0 0;
+      min-height: 1.66rem;
+    }
+    .app_btn_wapper{
+      box-sizing: border-box;
+      padding:0 0.52rem;
+    }
+  }
+}
+
+
+// 合作方详情页面 end

@@ -73,6 +73,9 @@ export default {
       },
       immediate: true
     }
+  },
+  beforeDestroy() {
+    this.goBase()
   }
 }
 

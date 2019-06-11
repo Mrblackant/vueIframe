@@ -1,12 +1,45 @@
 // 放置全部的图片
 // 全局url
-$commonUrl:"http://10.10.11.41:28726";
+// $commonUrl:"http://10.10.11.41:28726";
+$commonUrl:"https://an888.net/appImg/";
 // 首页背景图
-$indexBk:$commonUrl+"/web/img/visit/bg1.png";
+$indexBk:$commonUrl+"bg1.png";
 // 带新通lcard图
-$indexCard:$commonUrl+"/web/img/visit/card.png";
+$indexCard:$commonUrl+"card.png";
 // 首页实现新可能logo
-$indexlogo:$commonUrl+"/web/img/visit/slogan.png";
+$indexlogo:$commonUrl+"slogan.png";
 
 // 登录页背景图
-$loginBk:$commonUrl+"/web/img/visit/bg_2.png";
+$loginBk:$commonUrl+"bg_2.png";
+
+// 合作方登录后的首页
+$partyIndex:$commonUrl+"bg3.png";
+$partyIndexfz:$commonUrl+"fangzi.png";
+$partyIndexleft:$commonUrl+"yuyuebaifang.png";
+$partyIndexright:$commonUrl+"yuyueguanli.png";
+
+// 弹窗里的图片
+$shenfen1:$commonUrl+"shenfen1.png";
+$quxiaoliyou2:$commonUrl+"quxiaoliyou2.png";
+$tuichu:$commonUrl+"tuichu.png";
+
+// 列表可点击箭头
+$canActive:$commonUrl+"xuanze.png";
+
+// 个人中心上边的房子
+$peronalTop:$commonUrl+"bg4.png";
+// 删除小图标
+$delBtn:$commonUrl+"shanchu.png";
+
+// 弹窗不同图标的class
+.shenfen1 {
+  background-image: url($shenfen1);
+}
+
+.quxiaoliyou2 {
+  background-image: url($quxiaoliyou2);
+}
+
+.tuichu {
+  background-image: url($tuichu);
+}

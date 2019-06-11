@@ -45,7 +45,7 @@ body {
 }
 
 .app_flex_row_bettwen {
-  // 水平两端居中
+  // 水平两端对齐
   -webkit-box-pack: space-between;
   -moz-justify-content: space-between;
   -webkit-justify-content: space-between;
@@ -117,6 +117,7 @@ body {
   border: none;
   border-radius: 8px;
   text-align: center;
+  color: #fff;
   font-size: 0.28rem;
   background-color: $btnConfirmColor;
 
@@ -134,4 +135,223 @@ body {
 // 可用btn
 .app_btn_confirm {
   background-color: $btnConfirmColor;
+}
+
+// 公用的wapperr
+.app_wapper {
+  font-size: 0.30rem;
+  position: absolute;
+  color: $commonFontColor;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+.app_inp_noline {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+
+// 公用的tabs
+// .app_tabs_wapper {
+//   background-color: $baseColor;
+// }
+// 列表页的样式
+.app_set_wapper {
+  background-color: #fff;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 1.88rem;
+  background-image: url($partyIndex);
+  font-size: 0.26rem;
+
+  .app_list_wapper {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: -0.39rem;
+    bottom: 0;
+
+    .app_content {
+      width: 6.70rem;
+      margin: 0 auto;
+      overflow: auto;
+      box-sizing: border-box;
+      height: 100%;
+
+      .app_content_item {
+        margin-bottom: 0.25rem;
+      }
+
+      .app_content_item:last-child {
+        margin-bottom: 0;
+      }
+
+
+
+      .app_title {
+        width: 1.05rem;
+        height: .42rem;
+        font-size: 0.22rem;
+        text-align: center;
+        line-height: .42rem;
+        background: #CDCDCD;
+        color: #fff;
+        position: absolute;
+        right: 0;
+        top: 0.23rem;
+        box-shadow: 0px 3px 10px 0px rgba(140, 140, 140, 0.34);
+      }
+
+      li {
+        height: auto;
+        color: $commonFontColor;
+        background: #DDF0FF;
+        box-shadow: 0px 2px 14px 1px rgba(31, 42, 65, 0.18);
+        padding: 0.32rem;
+        margin-bottom: 0.40rem;
+        position: relative;
+      }
+
+      li.app_can_active {
+        background-image: url($canActive);
+        background-size: 0.14rem 0.26rem;
+        background-repeat: no-repeat;
+        background-position: 96% 50%;
+      }
+    }
+  }
+
+}
+
+// 同意文字的颜色
+.app_agree {
+  color: $btnConfirmColor;
+}
+
+// 拒绝文字的颜色
+.app_not_agree {
+  color: $redColor;
+}
+
+// 弹窗里的按钮样式
+.app_btn_wapper {
+  width: 100%;
+  margin-top: 0.56rem;
+
+  .app_btn {
+    width: 1.60rem;
+    height: .62rem;
+    border: 1px solid;
+    border-radius: 7px;
+  }
+
+  .app_btn_qx {
+    border-color: $btnConfirmColor;
+    background-color: #fff;
+    color: $btnConfirmColor;
+  }
+
+  .app_btn_confirm {
+    border-color: $btnConfirmColor;
+    background-color: $btnConfirmColor;
+    color: #fff;
+
+  }
+
+}
+
+// 个人中心
+.app_personl_wapper {
+  padding-bottom: 1rem;
+  box-sizing: border-box;
+  overflow: auto;
+  background-image: url($partyIndex);
+  background-color: #fff;
+
+  .app_out_btn {
+    display: block;
+    width: 5.48rem;
+    padding: 0.27rem 0;
+    margin: 0 auto;
+    margin-top: 0.64rem;
+  }
+
+  .app_top_bak {
+    width: 100%;
+    height: 2.61rem;
+    background-position: 0 -1rem;
+    background-image: url($peronalTop)
+  }
+
+  .app_set_img {
+    display: block;
+    width: 1.50rem;
+    height: 1.50rem;
+    border: 1px solid red;
+    margin: 0 auto;
+    margin-top: 0.50rem;
+  }
+
+  .app_my_content {
+    padding: 1.17rem 0.75rem;
+
+    p {
+      text-align: center;
+    }
+  }
+
+}
+
+// 个人中心end
+
+// 类似表单填写的form
+.app_items_wapper {
+  margin-top: 0.35rem;
+
+  .app_item {
+    border-bottom: 1px solid #E2E2E2;
+    padding-bottom: 0.35rem;
+    margin-bottom: 0.35rem;
+    padding-left: 0.41rem;
+    background-image: url($canActive);
+    background-repeat: no-repeat;
+    background-size: 0.14rem 0.26rem;
+    background-position: 96% 23%;
+    box-sizing: border-box;
+    padding-right: 0.76rem;
+
+    .app_inp {
+      text-align: right;
+      border: none;
+      padding: 0;
+      width: 5.00rem;
+    }
+  }
+
+  .app_no_bk {
+    background: none;
+
+  }
+}
+
+// 页面最下方固定的btn
+
+.app_btn_fixed_bot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.27rem 0;
+  border-radius: 0;
+}
+
+// 背景$partyIndex的wapper
+.app_wapper_bk3 {
+  background-image: url($partyIndex);
+  background-color: #fff;
 }

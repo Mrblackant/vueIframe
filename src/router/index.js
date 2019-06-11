@@ -54,6 +54,10 @@ export const constantRouterMap = [
     component: _import("partners/form/index")
   },
   {
+    path: '/partnersformcompanies',
+    component: _import("partners/form/allCompanies")
+  },
+  {
     path: '/partnersPersonal',
     component: _import("partners/personalCenter/index")
   },

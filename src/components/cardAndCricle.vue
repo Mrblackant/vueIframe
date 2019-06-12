@@ -1,6 +1,6 @@
 <template>
   <div class="app_dia_wapper">
-    <div :style="{width:width,height:height}" class="app_card_wapper">
+    <div :style="{width:width,minHeight:height}" class="app_card_wapper">
       <span class="app_inner_circle" :class="iconClass"></span>
       <slot></slot>
     </div>
@@ -15,7 +15,7 @@ export default {
     },
     height: {
       type: String,
-      default: "auto"
+      default: "1rem"
     },
     iconClass: {
       type: String,
@@ -47,6 +47,7 @@ export default {
   background: rgba(0, 0, 0, 0.6);
 
   .app_card_wapper {
+    color: #3C4F5E;
     // width: 5.40rem;
     // height: 3.86rem;
     background: #fff;

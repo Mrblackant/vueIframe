@@ -183,6 +183,42 @@ body {
       box-sizing: border-box;
       height: 100%;
 
+      // 列表页面的右侧提示
+      .app_second_confirm {
+        width: 1.28rem;
+        font-size: 0.22rem;
+        height: 0.38rem;
+        border: 1px solid $btnConfirmColor;
+        color: $btnConfirmColor;
+        background-color: #fff;
+        line-height: 0.40rem;
+        text-align: center;
+        position: absolute;
+        right: -2px;
+        top: 0.23rem;
+      }
+
+      .app_second_confirm_gery {
+        background-color: #CDCDCD;
+        border: 1px solid #CDCDCD;
+        color: #fff;
+      }
+
+      // 列表上边的已反馈标签
+      .app_top_title {
+        background-color: #4CA2E2;
+        display: inline-block;
+        padding: 0.10rem 0.33rem;
+        font-size: 0.22rem;
+        // height: 0.42rem;
+        // line-height: 0.42rem;
+        box-shadow: 0px 3px 10px 0px rgba(140, 140, 140, 0.34);
+        text-align: center;
+        color: #fff;
+        position: relative;
+        left: -0.33rem;
+      }
+
       .app_content_item {
         margin-bottom: 0.25rem;
       }
@@ -354,4 +390,127 @@ body {
 .app_wapper_bk3 {
   background-image: url($partyIndex);
   background-color: #fff;
+}
+
+// 国合方 列表上的按钮
+.app_btns_wapper {
+  // position: absolute;
+  // z-index: 999;
+
+  .app_muti_btn {
+    width: 1.96rem;
+    // margin: 0 auto;
+    // display: block;
+    // position: absolute;
+    // z-index: 9999;
+    // height: 0.54rem;
+    padding: 0.16rem 0;
+    font-size: 0.24rem;
+    box-shadow: 0px 5px 10px 0px rgba(64, 149, 227, 0.3);
+  }
+}
+
+.app_gery {
+  color: #939393;
+}
+
+.app_has_padding {
+  box-sizing: border-box;
+  padding: 0 0.59rem;
+}
+
+
+//弹窗
+.app_set_wapper {
+  .app_common_dia {
+    .app_card_wapper {
+      box-sizing: border-box;
+      padding: 0.90rem 0.40rem;
+      text-align: center;
+    }
+  }
+
+  textarea {
+    border: 1px solid #E5E5E5;
+    width: 100%;
+    outline: none;
+    margin: 0.30rem 0 0;
+    padding: 0.20rem;
+    min-height: 1.66rem;
+    box-sizing: border-box;
+  }
+
+  .app_btn_wapper {
+    box-sizing: border-box;
+    padding: 0 0.52rem;
+  }
+}
+
+// 国合方等的详情页面
+.app_detail_wapper {
+  font-size: 0.26rem;
+
+  .app_detail_top {
+    padding-top: 0.65rem;
+
+    // 列表页面的右侧提示
+    .app_second_confirm {
+      width: 1.28rem;
+      font-size: 0.22rem;
+      height: 0.38rem;
+      border: 1px solid $btnConfirmColor;
+      color: $btnConfirmColor;
+      background-color: #fff;
+      line-height: 0.40rem;
+      text-align: center;
+      // position: absolute;
+      // right: -2px;
+      // top: 0.23rem;
+    }
+
+    // 列表上边的已反馈标签
+    .app_top_title {
+      background-color: #4CA2E2;
+      display: inline-block;
+      padding: 0.10rem 0.33rem;
+      font-size: 0.22rem;
+      // height: 0.42rem;
+      // line-height: 0.42rem;
+      box-shadow: 0px 3px 10px 0px rgba(140, 140, 140, 0.34);
+      text-align: center;
+      color: #fff;
+      // position: relative;
+      // left: -0.33rem;
+    }
+  }
+
+  .app_inner_item {
+    border-bottom: 1px solid #E2E2E2;
+    padding: 0.38rem 0.73rem 0.51rem;
+
+    p {
+      margin: 0;
+      margin-bottom: 0.41rem;
+    }
+
+    p:last-child {
+      margin: 0;
+    }
+
+    .app_inner_item_img {
+      width: 1.30rem;
+      height: 1.30rem;
+      vertical-align: middle;
+      display: inline-block;
+      border: 1px solid red;
+    }
+  }
+
+  .app_inner_item:last-child {
+    border: none;
+  }
+}
+
+.app_rej_btn {
+  background-color: $redColor;
 }

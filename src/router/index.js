@@ -38,46 +38,69 @@ export const constantRouterMap = [
     component: _import("regist/index")
   },
   {
-    path: '/partners',
-    component: _import("partners/index")
+    path: '/hzParty',
+    component: _import("hzParty/index")
   },
   {
-    path: '/partnerslist',
-    component: _import("partners/list/index")
+    path: '/hzPartylist',
+    component: _import("hzParty/list/index")
   },
   {
-    path: '/partnersdetail',
-    component: _import("partners/detail/index")
+    path: '/hzPartydetail',
+    component: _import("hzParty/detail/index")
   },
   {
-    path: '/partnersform',
-    component: _import("partners/form/index")
+    path: '/hzPartyform',
+    component: _import("hzParty/form/index")
   },
   {
-    path: '/partnersformcompanies',
-    component: _import("partners/form/allCompanies")
+    path: '/hzPartyformcompanies',
+    component: _import("hzParty/form/allCompanies")
   },
   {
-    path: '/partnersPersonal',
-    component: _import("partners/personalCenter/index")
+    path: '/hzPartyPersonal',
+    component: _import("hzParty/personalCenter/index")
   },
   {
-    path: '/partnersPersonalName',
-    component: _import("partners/personalCenter/setName")
+    path: '/hzPartyPersonalName',
+    component: _import("hzParty/personalCenter/setName")
   },
   {
-    path: '/partnersPersonalInfo',
-    component: _import("partners/personalCenter/setOtherInfo")
+    path: '/hzPartyPersonalInfo',
+    component: _import("hzParty/personalCenter/setOtherInfo")
   },
   {
-    path: '/partnersPersonalSfyz',
-    component: _import("partners/personalCenter/identityAuthentication")
+    path: '/hzPartyPersonalSfyz',
+    component: _import("hzParty/personalCenter/identityAuthentication")
   },
   {
-    path: '/partnersPersonalTjyx',
-    component: _import("partners/personalCenter/academicAccreditation")
+    path: '/hzPartyPersonalTjyx',
+    component: _import("hzParty/personalCenter/academicAccreditation")
+  },
+  // 国合方 ghParty
+  {
+    path: '/ghParty',
+    component: _import("ghParty/list/index")
+  },
+  {
+    path: '/ghPartyDetail',
+    component: _import("ghParty/detail/index")
+  }, {
+    path: '/ghPartyPersonal',
+    component: _import("ghParty/personalCenter/index")
+  },
+  // 分公司 fgsParty
+  {
+    path: '/fgsParty',
+    component: _import("fgsParty/list/index")
+  },
+  {
+    path: '/fgsPartyDetail',
+    component: _import("fgsParty/detail/index")
+  }, {
+    path: '/fgsPartyPersonal',
+    component: _import("fgsParty/personalCenter/index")
   }
-
 ]
 Vue.use(Router)
 export default new Router({
